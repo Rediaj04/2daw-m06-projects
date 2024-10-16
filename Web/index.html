@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pepe Titulo</title>
+
+    <style>
+        label {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        #cbox2{
+            margin-left: 30px;
+        }
+        #cbox3{
+            margin-left: 30px;
+        }
+        #cbox4{
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titulo">Listado</h1>
+  
+    <button type="button" id="cambiarColorBtn">Pulsame</button>
+
+    <input type="text" id="nuevoElemento">
+    <button type="button" id="agregarElementoBtn">+ elemento</button>
+
+    <input type="text" id="elementoEliminar">
+    <button type="button" id="eliminarElementoBtn">- elemento</button>
+
+    <label> 
+        <input type="checkbox" id="cbox1" pos /> Negrillas
+        <input type="checkbox" id="cbox2" pos /> Boton2
+        <input type="checkbox" id="cbox3" pos /> Boton3
+        <input type="checkbox" id="cbox4" pos /> Boton4
+    </label>
+
+    <ul id="listaElementos">
+    </ul>
+
+
+    <script src="./built/index.js"></script>
+</body>
+</html>
