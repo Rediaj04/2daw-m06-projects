@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="calculadora.css">
+    <script src="./built/calculadora.js" defer></script>
+</head>
+<body>
+    <form>
+        <input type="text" id="pantalla" readonly>
+    </form>
+
+  
+    <div id="calculadora">
+        <div id="fila1">
+            <button onclick="borrar()">CE</button> 
+            <button id="vacio"></button> 
+            <button id="vacio"></button>
+            <button onclick="pantalla.value = pantalla.value.slice(0, -1)">←</button>
+        </div>
+        <div id="botones789">
+            <button onclick="add('7')">7</button>
+            <button onclick="add('8')">8</button>
+            <button onclick="add('9')">9</button>
+            <button onclick="add('*')" id="operador-multi">*</button>
+        </div>
+        <div id="botones456">
+            <button onclick="add('4')" >4</button>
+            <button onclick="add('5')">5</button>
+            <button onclick="add('6')">6</button>
+            <button onclick="add('-')" id="operador-resta">-</button>
+        </div>
+        <div id="botones123">
+            <button onclick="add('1')">1</button>
+            <button onclick="add('2')">2</button>
+            <button onclick="add('3')">3</button>
+            <button onclick="add('+')"id="operador-suma">+</button> 
+        </div>
+        <div id="botones0">
+            <button onclick="add('0')">0</button>
+            <button onclick="add('.')">.</button>
+            <button onclick="add('/')"id="operador-dividir">/</button>
+            <button onclick="calcular()"id="igual">=</button> 
+        </div>
+    </div>
+</body>
+</html>
