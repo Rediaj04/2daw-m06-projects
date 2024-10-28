@@ -1,8 +1,10 @@
 # Calculadora
 
+> Una aplicación web simple que permite realizar operaciones matemáticas básicas con una interfaz intuitiva.
+
 ## Descripción
 
-La **Calculadora** es una aplicación web simple que permite realizar operaciones matemáticas básicas. Utiliza HTML, CSS y TypeScript para ofrecer una interfaz intuitiva y funcional. Los usuarios pueden ingresar números y operadores, y obtener resultados instantáneamente.
+La **Calculadora** es una aplicación web desarrollada con HTML, CSS y TypeScript. Permite a los usuarios ingresar números y operadores para obtener resultados instantáneos.
 
 ## Tecnologías Utilizadas
 

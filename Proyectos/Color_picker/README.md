@@ -1,8 +1,10 @@
 # Selector de Color
 
+> Una aplicación que permite a los usuarios cambiar el color de un cuadrado seleccionando entre varias opciones disponibles.
+
 ## Descripción
 
-El Selector de Color es una aplicación simple que permite a los usuarios elegir entre varios colores y aplicar el color seleccionado a un cuadrado en la interfaz. Este proyecto utiliza HTML, CSS y TypeScript para ofrecer una experiencia visual atractiva y funcional.
+El **Selector de Color** es una aplicación sencilla y visualmente atractiva desarrollada en HTML, CSS y TypeScript. Los usuarios pueden elegir entre varios colores y aplicarlos a un cuadrado en la interfaz.
 
 ## Tecnologías Utilizadas
 
