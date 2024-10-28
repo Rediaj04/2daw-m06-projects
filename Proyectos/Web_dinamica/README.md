@@ -2,16 +2,6 @@
 
 > Una aplicación web interactiva para cambiar estilos de texto, gestionar listas de elementos dinámicos y reproducir música con solo un clic. Diseñada para practicar eventos y manipulación del DOM en TypeScript.
 
-## Índice
-
-- [Descripción](#descripción)
-- [Características](#características)
-- [Instalación](#instalación)
-- [Ejecución](#ejecución)
-- [Uso](#uso)
-- [Tecnologías](#tecnologías)
-- [Estructura de archivos](#estructura-de-archivos)
-
 ## Descripción
 
 **Web Dinámica** permite a los usuarios interactuar con varios elementos del DOM para aplicar estilos de texto, administrar una lista de elementos agregando y eliminando ítems, y alternar la reproducción de música. Este proyecto está desarrollado en TypeScript y utiliza HTML y CSS para la estructura y el estilo.
