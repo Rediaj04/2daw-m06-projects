@@ -1,0 +1,84 @@
+body {
+    font-family: 'Creepster', cursive; /* Cambiar a una fuente gótica */
+    background-color: #222;
+    background-image: url('/src/media/fondo3.jpg'); /* Ruta a la imagen de fondo */
+    background-size: cover; /* Cubrir todo el fondo */
+    background-position: center; /* Centrar la imagen de fondo */
+    color: #f2f2f2;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #ffcc00; /* Color del título */
+}
+
+button {
+    background-color: #444;
+    color: #ffcc00; /* Color amarillo */
+    border: 2px solid #ffcc00; /* Borde amarillo */
+    padding: 10px 15px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-family: 'Creepster', cursive; /* Cambiar a una fuente gótica */
+}
+
+button:hover {
+    background-color: #666; /* Color del botón al pasar el mouse */
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+}
+
+label {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px; /* Separar checkboxes */
+}
+
+#listaElementos {
+    list-style-type: none; /* Eliminar el estilo de lista */
+    padding: 0; /* Eliminar padding */
+}
+
+#listaElementos li {
+    background-color: #555; /* Color de fondo de los elementos de la lista */
+    margin: 5px 0; /* Margen entre elementos */
+    padding: 10px; /* Padding de los elementos */
+    border-radius: 5px; /* Esquinas redondeadas */
+}
+
+#titulo {
+    margin-bottom: 20px; /* Separación del título */
+}
+
+#descripcion {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px; /* Separación superior */
+    display: flex; /* Flexbox para alinear texto e imagen */
+    justify-content: space-between; /* Espacio entre texto e imagen */
+    align-items: flex-start; /* Alinear el contenido al inicio */
+}
+
+#descripcion p {
+    flex: 1; /* El texto ocupa el espacio restante */
+    margin-right: 20px; /* Separación entre texto e imagen */
+}
+
+#descripcion img {
+    max-width: 20%; /* Ajustar imagen a un 20% del contenedor */
+    height: auto; /* Mantener proporciones */
+}
+
+#fraseDestacada {
+    color: #ffcc00; /* Color amarillo */
+    margin: 20px 0; /* Separación del texto */
+}
+
+#descripcion, #fraseDestacada {
+    margin-bottom: 20px; /* Separar descripción y texto adicional */
+}
