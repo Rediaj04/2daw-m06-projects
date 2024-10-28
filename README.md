@@ -20,7 +20,7 @@ Este repositorio alberga una serie de proyectos desarrollados en entornos client
    - Una aplicación que abre múltiples ventanas con un fondo de color aleatorio, según el número ingresado por el usuario.
    - [Ver proyecto](https://github.com/Rediaj04/2daw-m06-projects/tree/main/Proyectos/Ejercicio2)
 
-5. **Ejercicio 1: Día de la Semana** 📅
+5. **Día de la Semana** 📅
    - Una aplicación que calcula el día de la semana a partir de una fecha ingresada en el formato dd/mm/yyyy.
    - [Ver proyecto](https://github.com/Rediaj04/2daw-m06-projects/tree/main/Proyectos/Ejercicio1)
 
