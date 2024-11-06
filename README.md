@@ -1,29 +1,19 @@
-# Proyectos de Desarrollo en Entornos Clientes 🌐
+# Repositorio de Proyectos y Ejercicios de Desarrollo en Entornos Clientes 📂
 
-Este repositorio alberga una serie de proyectos desarrollados en entornos clientes, que utilizan tecnologías como HTML, CSS y TypeScript. Cada proyecto está diseñado para proporcionar una experiencia interactiva y funcional para el usuario.
+Este repositorio alberga una serie de **proyectos** y **ejercicios** diseñados para ampliar el conocimiento en el desarrollo de entornos cliente. Los proyectos están orientados a la creación de aplicaciones interactivas, mientras que los ejercicios están enfocados en mejorar habilidades y conceptos fundamentales. Ambos conjuntos de trabajos están basados en tecnologías como **HTML**, **CSS**, **TypeScript** y **JavaScript**.
 
-## Proyectos Incluidos 🚀
+## Proyectos de Desarrollo 🚀
 
-1. **Web Dinámica** 🌍
-   - Una web dinámica que permite a los usuarios interactuar con varios elementos del DOM
-   - [Ver proyecto](https://github.com/Rediaj04/2daw-m06-projects/tree/main/Proyectos/Web_dinamica)
+En esta sección del repositorio encontrarás una serie de proyectos que utilizan diversas tecnologías y están orientados a ofrecer experiencias funcionales y visuales para el usuario.
 
-2. **Calculadora** ➕
-   - Una aplicación web simple que permite realizar operaciones matemáticas básicas.
-   - [Ver proyecto](https://github.com/Rediaj04/2daw-m06-projects/tree/main/Proyectos/Calculadora)
+- [Ver proyectos](https://github.com/Rediaj04/2daw-m06-projects/tree/main/Proyectos)
 
-3. **Selector de Color** 🎨
-   - Una aplicación que permite a los usuarios elegir entre varios colores y aplicarlos a un cuadrado en la interfaz.
-   - [Ver proyecto](https://github.com/Rediaj04/2daw-m06-projects/tree/main/Proyectos/Color_picker)
+## Ejercicios de Desarrollo 🔧
 
-4. **Generador de Ventanas Aleatorias** 🪟
-   - Una aplicación que abre múltiples ventanas con un fondo de color aleatorio, según el número ingresado por el usuario.
-   - [Ver proyecto](https://github.com/Rediaj04/2daw-m06-projects/tree/main/Proyectos/Ejercicio2)
+Los ejercicios son prácticos y están diseñados para consolidar conceptos clave en el desarrollo de aplicaciones en entornos cliente. Cada ejercicio está centrado en una tarea específica que permite practicar operaciones y lógica.
 
-5. **Día de la Semana** 📅
-   - Una aplicación que calcula el día de la semana a partir de una fecha ingresada en el formato dd/mm/yyyy.
-   - [Ver proyecto](https://github.com/Rediaj04/2daw-m06-projects/tree/main/Proyectos/Ejercicio1)
+- [Ver ejercicios](https://github.com/Rediaj04/2daw-m06-projects/tree/main/Ejercicios)
 
 ---
 
-A medida que avance en mis desarrollos, se irán añadiendo más proyectos a este repositorio. 🔜
+🔜 A medida que avance en mis desarrollos y ejercicios, se irán añadiendo más recursos a este repositorio.
