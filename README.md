@@ -4,8 +4,8 @@ Este repositorio alberga una serie de proyectos desarrollados en entornos client
 
 ## Proyectos Incluidos 🚀
 
-1. **Web Dinámica** 🌍🎈
-   - Una web dinámica que permite a los usuarios interactuar con varios elementos del DOM.
+1. **Web Dinámica** 🌍
+   - Una web dinámica que permite a los usuarios interactuar con varios elementos del DOM
    - [Ver proyecto](https://github.com/Rediaj04/2daw-m06-projects/tree/main/Proyectos/Web_dinamica)
 
 2. **Calculadora** ➕
