@@ -11,9 +11,3 @@ Este ejercicio permite al usuario ingresar una fecha en formato `dd/mm/yyyy` y c
 - **Validación de Fecha**: Acepta solo fechas en el formato `dd/mm/yyyy`.
 - **Cálculo del Día de la Semana**: Determina el día de la semana de la fecha ingresada.
 - **Cálculo de Raíz Cuadrada**: Calcula la raíz cuadrada del número que representa el día de la semana.
-
-## Instalación
-
-1. Clona el repositorio:
-   ```bash
-   git clone <URL-del-repositorio>

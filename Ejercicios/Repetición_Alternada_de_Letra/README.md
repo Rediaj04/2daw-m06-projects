@@ -28,7 +28,3 @@ El programa toma la letra ingresada y la procesa para alternar entre los formato
 
 - HTML  
 - JavaScript
-
----
-
-> 🔜 A medida que avance en mis desarrollos, se irán añadiendo más ejercicios a esta sección del repositorio.

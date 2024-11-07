@@ -19,9 +19,3 @@ La **Calculadora** es una aplicación web desarrollada con HTML, CSS y TypeScrip
 - **Funcionalidad de retroceso**: Permite eliminar el último dígito ingresado.
 - **Borrado total**: Opción para limpiar la pantalla de entrada.
 - **Validación de errores**: Manejo de entradas inválidas y errores en las operaciones.
-
-## Instalación
-
-1. Clona el repositorio:
-   ```bash
-   git clone <URL_DEL_REPOSITORIO>

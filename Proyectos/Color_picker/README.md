@@ -21,9 +21,3 @@ El **Selector de Color** es una aplicación sencilla y visualmente atractiva des
   - Naranja
 - **Cambio de color**: Al hacer clic en un botón, el color de un cuadrado cambia al color correspondiente.
 - **Efectos de hover y active**: Los botones cambian de color al pasar el ratón y al hacer clic, proporcionando retroalimentación visual.
-
-## Instalación
-
-1. Clona el repositorio:
-   ```bash
-   git clone <URL_DEL_REPOSITORIO>

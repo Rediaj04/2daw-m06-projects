@@ -28,3 +28,7 @@ El programa utiliza la lógica simple de módulo (`%`) para comprobar si el núm
 
 - HTML
 - JavaScript
+
+---
+
+🔜 A medida que avance en mis desarrollos, se irán añadiendo más ejercicios a esta sección del repositorio.

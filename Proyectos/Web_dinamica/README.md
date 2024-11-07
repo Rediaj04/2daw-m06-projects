@@ -12,9 +12,3 @@
 - **Gestión de Lista**: Agregar y eliminar elementos de una lista.
 - **Reproducción de Música**: Alterna entre reproducir y pausar la música de fondo.
 - **Interfaz Interactiva**: Controles intuitivos mediante botones y casillas de verificación.
-
-## Instalación
-
-1. Clona el repositorio:
-   ```bash
-   git clone <URL-del-repositorio>

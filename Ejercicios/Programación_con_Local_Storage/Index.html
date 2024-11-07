@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Programación con Local Storage</title>
+  
+  <!-- Enlace al archivo JavaScript compilado que contiene la lógica de idioma y color de fondo -->
+  <script src="./built/index.js"></script>
+</head>
+
+<body onload="carregar()">
+  <!-- Texto predeterminado en castellano -->
+  <h1 id="header">Texto en castellano</h1>
+  <p id="paragraph">Para ver los cambios, actualizar la página. (Original)</p>
+
+  <!-- Botones de selección de idioma; actualizan la preferencia en localStorage -->
+  <button onclick="localStorage.setItem('idioma', 'Catalan');">Català</button>
+  <button onclick="localStorage.setItem('idioma', 'Castellano');">Castellano</button>
+  <button onclick="localStorage.setItem('idioma', 'Ingles');">Ingles</button><br />
+
+  <!-- Botones de selección de color de fondo; actualizan la preferencia en localStorage -->
+  <button onclick="localStorage.setItem('fondocolor', 'red');">Rojo</button>
+  <button onclick="localStorage.setItem('fondocolor', 'blue');">Azul</button>
+  <button onclick="localStorage.setItem('fondocolor', 'green');">Verde</button>
+</body>
+</html>
