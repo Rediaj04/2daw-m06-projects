@@ -4,17 +4,23 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <title>Programación con cookies</title>
+  <!-- Incluye el archivo JavaScript compilado que contiene la lógica para gestionar las cookies -->
   <script src="./built/index.js"></script>
 </head>
  
 <body onload="carregarCookies()">
+  <!-- Encabezado que muestra el texto en el idioma seleccionado, se actualiza según la cookie de idioma -->
   <h1 id="header">Text en castellano</h1>
-  <p id="paragraph">Para ver los cambios, actualizar la página.(Original)<br /></p>
-  <button onclick="document.cookie = 'idioma = catalan; expires=01 Jan 1990; max-age=0';">Catalan</button>
-  <button onclick="document.cookie = 'idioma = castellano; expires=31 Dec 2030';">Castellano</button>
-  <button onclick="document.cookie = 'idioma = ingles' ; ">Ingles</button><br />
-  <button onclick="document.cookie = 'fondocolor = red' ; ">Rojo</button>
-  <button onclick="document.cookie = 'fondocolor = blue; expires=15 Dec 2040';">Azul</button>
-  <button onclick="document.cookie = 'fondocolor = green' ; ">Verde</button>
+  <p id="paragraph">Para ver los cambios, actualizar la página. (Original)<br /></p>
+  
+  <!-- Botones para cambiar el idioma mediante cookies -->
+  <button onclick="document.cookie = 'idioma=catalan; expires=01 Jan 1990; max-age=0';">Català</button>
+  <button onclick="document.cookie = 'idioma=castellano; expires=31 Dec 2030';">Castellano</button>
+  <button onclick="document.cookie = 'idioma=ingles';">Inglés</button><br />
+  
+  <!-- Botones para cambiar el color de fondo mediante cookies -->
+  <button onclick="document.cookie = 'fondocolor=red';">Rojo</button>
+  <button onclick="document.cookie = 'fondocolor=blue; expires=15 Dec 2040';">Azul</button>
+  <button onclick="document.cookie = 'fondocolor=green';">Verde</button>
 </body>
 </html>

@@ -1,4 +1,4 @@
-# Ejercicio 2: Repetición Alternada de Letra en Mayúscula y Minúscula 🔠
+# Repetición Alternada de Letra en Mayúscula y Minúscula 🔠
 
 > El programa repite una letra diez veces, alternando entre mayúsculas y minúsculas con `toLowerCase()` y `toUpperCase()`.
 

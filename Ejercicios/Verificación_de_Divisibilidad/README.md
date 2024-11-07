@@ -1,4 +1,4 @@
-# Ejercicio 1: Verificación de Divisibilidad por 4 🔢
+# Verificación de Divisibilidad por 4 🔢
 
 > Este ejercicio permite al usuario ingresar un número y verificar si es divisible por 4. A través de un campo de entrada, el usuario puede introducir cualquier valor numérico, y el programa determinará automáticamente si es múltiplo de 4, mostrando el resultado de manera clara en la interfaz.
 
