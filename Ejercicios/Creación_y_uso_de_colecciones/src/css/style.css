@@ -1,0 +1,47 @@
+/* Estilos generales para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+/* Estilos para los encabezados */
+h2 {
+    color: #333;
+}
+
+/* Contenedor general para las secciones */
+div {
+    margin-bottom: 20px;
+}
+
+/* Estilos para los inputs de texto */
+input {
+    padding: 10px;
+    margin: 5px;
+    font-size: 1em;
+}
+
+/* Estilos para los botones */
+button {
+    padding: 10px;
+    font-size: 1em;
+    margin: 5px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Efecto hover para los botones */
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para los párrafos que muestran información */
+p {
+    margin-top: 10px;
+    color: #555;
+}

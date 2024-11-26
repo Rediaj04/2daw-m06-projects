@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creación y uso de colecciones</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <!-- Sección para manejar categorías -->
+    <div>
+        <h2>Categorías</h2>
+        <!-- Input para agregar nueva categoría -->
+        <input type="text" id="AñadirCa" placeholder="Añadir categoría">
+        <!-- Botón para añadir la categoría -->
+        <button onclick="AñadirC()">Añadir Categoría</button>
+        <!-- Botón para mostrar las categorías existentes -->
+        <button onclick="MostrarC()">Mostrar Categorías</button>
+        <!-- Párrafo para mostrar las categorías -->
+        <p id="categorias"></p>
+    </div>
+
+    <!-- Sección para manejar productos -->
+    <div>
+        <h2>Productos</h2>
+        <!-- Input para añadir un nuevo producto -->
+        <input type="text" id="AñadirPo" placeholder="Añadir producto">
+        <!-- Input para añadir la cantidad de un producto -->
+        <input type="number" id="AñadirPoCant" placeholder="Cantidad" value="1">
+        <!-- Botón para añadir producto -->
+        <button onclick="AñadirP()">Añadir Producto</button>
+        <!-- Botón para eliminar producto -->
+        <button onclick="EliminarP()">Eliminar Producto</button>
+        <!-- Botón para mostrar los productos existentes -->
+        <button onclick="MostrarP()">Mostrar Productos</button>
+        <!-- Párrafo para mostrar los productos -->
+        <p id="productos"></p>
+    </div>
+
+    <!-- Sección para manejar las ventas -->
+    <div>
+        <h2>Venta</h2>
+        <!-- Input para seleccionar el producto a vender -->
+        <input type="text" id="ProductoVenta" placeholder="Producto a vender">
+        <!-- Input para especificar el precio de venta -->
+        <input type="number" id="PrecioVenta" placeholder="Precio de venta">
+        <!-- Botón para realizar una venta -->
+        <button onclick="VenderProducto()">Vender Producto</button>
+        <!-- Botón para mostrar las ventas -->
+        <button onclick="MostrarVentas()">Mostrar Ventas</button>
+        <!-- Párrafo para mostrar las ventas -->
+        <p id="ventas"></p>
+    </div>
+
+    <!-- Sección para mostrar los beneficios -->
+    <div>
+        <h2>Beneficios</h2>
+        <!-- Botón para mostrar los beneficios -->
+        <button onclick="MostrarBeneficios()">Mostrar Beneficios</button>
+        <!-- Párrafo para mostrar los beneficios -->
+        <p id="beneficios"></p>
+    </div>
+
+    <!-- Enlace al archivo JavaScript donde se gestionan las funcionalidades -->
+    <script src="./built/index.js"></script>
+</body>
+</html>
