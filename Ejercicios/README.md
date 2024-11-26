@@ -20,7 +20,7 @@ En esta sección del repositorio, encontrarás una serie de ejercicios práctico
    - En este proyecto, el usuario puede seleccionar su idioma preferido y color de fondo, almacenando estas preferencias en `LocalStorage`. Al recargar la página, el idioma y color elegidos se mantienen, permitiendo una experiencia personalizada persistente.  
    - [Ver ejercicio](https://github.com/Rediaj04/2daw-m06-projects/tree/main/Ejercicios/Programación_con_LocalStorage)
 
-5. **Creación y uso de colecciones ** 🏠  
+5. **Creación y uso de colecciones** 🏠  
    - Este proyecto es una casa de subastas simplificada donde los usuarios pueden agregar categorías, productos, realizar ventas, ver las ventas realizadas y los beneficios obtenidos.  
    - [Ver ejercicio](https://github.com/Rediaj04/2daw-m06-projects/tree/main/Ejercicios/Creación_y_uso_de_colecciones)
 
