@@ -1,0 +1,103 @@
+/* Estilos generales */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #2a2a2a, #0f0f0f);
+}
+
+form {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+fieldset {
+    border: 2px solid #ff5e00;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+legend {
+    font-weight: bold;
+    color: #ff5e00;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+label {
+    display: block;
+    margin-top: 8px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 14px;
+}
+
+input, select, textarea {
+    width: calc(100% - 12px);
+    padding: 6px;
+    margin-top: 4px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    display: block;
+}
+
+textarea {
+    resize: none;
+}
+
+input[type="radio"] {
+    width: auto;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.radio-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+input[type="submit"], input[type="reset"] {
+    background: #ff5e00;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+    width: 48%;
+    margin: 8px 1%;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover {
+    transform: scale(1.05);
+    background: #ff4500;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Efecto de sombra en los campos de entrada */
+input:focus, select:focus, textarea:focus {
+    box-shadow: 0 0 8px rgba(255, 94, 0, 0.8);
+    outline: none;
+}

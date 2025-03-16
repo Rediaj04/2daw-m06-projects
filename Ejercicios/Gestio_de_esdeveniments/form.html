@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Partido</title>
+    <link rel="stylesheet" href="form.css"> 
+    <script>
+        // Función para establecer el valor inicial del textarea
+        window.onload = function() {
+            document.getElementById('comments').value = "Escribe tus comentarios aquí...";
+        };
+    </script>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Información Personal</legend>
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" placeholder="Nombre" required autofocus>
+            <label for="lastname">Apellido:</label>
+            <input type="text" id="lastname" placeholder="Apellido" required>
+            <label for="age">Edad:</label>
+            <input type="number" id="age" placeholder="Edad" required min="0">
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" placeholder="Correo electrónico" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Introduce tu ciudad:</legend>
+            <label for="city">Ciudad:</label>
+            <input list="cities" id="city" placeholder="Selecciona o escribe tu ciudad" required>
+            <datalist id="cities">
+                <option value="Barranquilla">
+                <option value="Medellín">
+                <option value="Bogotá">
+                <option value="Cali">
+                <option value="Cartagena">
+            </datalist>
+        </fieldset>
+
+        <fieldset>
+            <legend>Estadio</legend>
+            <label for="stadium">Nombre del Estadio:</label>
+            <input type="text" id="stadium" placeholder="Nombre del estadio" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Estado del Estadio</legend>
+            <label>
+                <input type="radio" name="stadium_status" id="open" value="open" required> Bueno
+            </label>
+            <label>
+                <input type="radio" name="stadium_status" id="close" value="close"> Malo  
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Equipos Participantes</legend>
+            <label for="team1">Equipo 1:</label>
+            <input type="text" id="team1" placeholder="Equipo 1" required>
+            <label for="team2">Equipo 2:</label>
+            <input type="text" id="team2" placeholder="Equipo 2" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Detalles del Partido</legend>
+            <label for="date">Fecha del Partido:</label>
+            <input type="date" id="date" required>
+            <label for="score">Resultado Final:</label>
+            <input type="text" id="score" value="5-2" readonly>
+            <label for="mvp">Jugador Más Valioso:</label>
+            <input type="text" id="mvp" value="Lucho Diaz" readonly>
+        </fieldset>
+
+        <fieldset>
+            <legend>Comentarios Adicionales</legend>
+            <label for="comments">Comentarios:</label>
+            <textarea id="comments" rows="4" cols="50" maxlength="200"></textarea>
+        </fieldset>
+
+        <fieldset>
+            <legend>Selecciona tu jugador favorito:</legend>
+            <label for="favorites">Jugador favorito:</label>
+            <select id="favorites">
+                <optgroup label="Junior de Barranquilla">
+                    <option value="jh">Jh de la Cruz</option>
+                    <option value ="cole">El Valecita Cole</option>
+                </optgroup>
+                <optgroup label="Atlético Nacional">
+                    <option value="Westcol">Westcol</option>
+                    <option value="bendito">El Bendito</option>
+                </optgroup>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>Finalizar</legend>
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Borrar">
+        </fieldset>
+    </form>
+    <!-- Botón para regresar a la página principal -->
+    <div class="navigation">
+        <button onclick="window.location.href='index.html'">Regresar a la Página Principal</button>
+    </div>
+</body>
+</html>

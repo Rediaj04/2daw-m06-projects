@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoMar</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body onload="iniciarPagina()">
+    <header>
+        <div class="logo-container">
+            <img src="./src/media/logo.jpg" alt="Logo VideoMar" class="logo">
+            <h1>VideoMar</h1>
+        </div>
+    </header>
+    <main>
+        <section id="clientes">
+            <h2>Lista de Clientes</h2>
+            <ul id="listaClientes"></ul>
+        </section>
+        <section id="gestionProductos">
+            <h2>Añadir Productos</h2>
+            <input type="text" id="inputProducto" placeholder="Nombre | Nombre, Plataforma">
+            <button onclick="agregarProducto()">Agregar Producto</button>
+        </section>
+        <section id="mostrarInformacion">
+            <h2>Mostrar Información</h2>
+            <button onclick="mostrar('peliculas')">Mostrar Películas</button>
+            <button onclick="mostrar('videojuegos')">Mostrar Videojuegos</button>
+            <button onclick="mostrar('ambos')">Mostrar ambos</button>
+            <table id="tablaProductos"></table>
+        </section>
+    </main>
+</body>
+<script src="./built/index.js"></script>
+</html>

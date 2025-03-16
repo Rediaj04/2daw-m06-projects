@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Videoclub</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="./dist/videoclub.js" defer></script>
+  <script src="matrix.js" defer></script>
+</head>
+
+<body onload="carregarDades()">
+  <!-- Contenedor para el efecto Matrix -->
+  <div id="matrixBackground"></div>
+
+  <h1>Videoclub Matrixx</h1>
+
+  <!-- Sección de clientes -->
+  <section id="clients">
+    <h2>Lista de clientes</h2>
+    <ul id="clientList"></ul>
+  </section>
+
+  <!-- Sección para agregar películas o videojuegos -->
+  <section id="addItem">
+    <h2>Añadir Películas o Videojuegos</h2>
+    <input type="text" id="itemInput" placeholder="Nombre o Nombre, Plataforma">
+    <button onclick="afegirProducte()">Añadir</button>
+  </section>
+
+  <!-- Sección para mostrar películas o videojuegos -->
+  <section id="displayItems">
+    <h2>Mostrar Contenido</h2>
+    <div class="controls">
+      <button onclick="mostrarDades('Películas')">Mostrar Películas</button>
+      <button onclick="mostrarDades('Videojuegos')">Mostrar Videojuegos</button>
+      <button onclick="mostrarDades()">Mostrar Todo</button>
+    </div>
+    <div id="tableContainer"></div>
+  </section>
+
+  <!-- Sección para el botón de registro -->
+  <section id="register">
+    <h2>Registro de Clientes</h2>
+    <button onclick="window.location.href='formulario.html'">Registrar nuevo cliente</button>
+  </section>
+
+</body>
+
+</html>

@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Estilos globales */
+body {
+    margin: 0;
+    padding: 0;
+    background: url('./assets/images/fondo_2560x1440.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Press Start 2P', Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.App {
+    text-align: center;
+    padding: 20px;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+}
+
+/* Contenedor principal */
+.tablero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Título */
+h1 {
+    color: #ffffff;
+    text-shadow: 2px 2px 0 #000000;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Tablero */
+.tablero {
+    display: inline-grid;
+    grid-template-columns: repeat(7, 55px);
+    grid-template-rows: repeat(7, 55px);
+    gap: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+/* Fila */
+.fila {
+    display: contents;
+}
+
+/* Celda individual */
+.celda {
+    width: 55px;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    cursor: default;
+    transition: all 0.2s ease;
+}
+
+/* Generador */
+.generador {
+    background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0.15) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.generador:hover {
+    background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.35) 0%,
+        rgba(255, 255, 255, 0.25) 100%
+    );
+    transform: scale(1.05);
+    box-shadow: 
+        inset 0 0 20px rgba(255, 255, 255, 0.2),
+        0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Efecto sutil cuando se hace click en el generador */
+.generador:active {
+    transform: scale(0.95);
+    background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0.2) 100%
+    );
+}
+
+/* Elemento arrastrable */
+.elemento-arrastrable {
+    cursor: grab;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.elemento-arrastrable:active {
+    cursor: grabbing;
+}
+
+/* Icono del elemento */
+.elemento-icono {
+    font-size: 32px;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Mensajes de error/éxito */
+.error-mensaje {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Estado de arrastre */
+.sobre {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.arrastrando {
+    opacity: 0.6;
+}
+
+/* Mensajes */
+.mensaje-maximo {
+    background-color: rgba(0, 255, 0, 0.3) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(0, 255, 0, 0.4);
+}
+
+/* Animaciones */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.elemento-arrastrable {
+    animation: aparecer 0.3s ease-out;
+}
+
+.mensaje-victoria {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 1000;
+}
+
+.boton-reiniciar {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.boton-reiniciar:hover {
+    background-color: #45a049;
+}
+
+/* Contenedor de botones */
+.botones-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+/* Estilos base para ambos botones */
+.boton-reiniciar-juego,
+.boton-fusion-total {
+    padding: 12px 24px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos específicos para el botón de reinicio */
+.boton-reiniciar-juego {
+    background: linear-gradient(
+        45deg,
+        rgba(76, 175, 80, 0.8) 0%,
+        rgba(56, 142, 60, 0.9) 100%
+    );
+}
+
+/* Estilos específicos para el botón de fusión total */
+.boton-fusion-total {
+    background: linear-gradient(
+        45deg,
+        rgba(156, 39, 176, 0.8) 0%,
+        rgba(123, 31, 162, 0.9) 100%
+    );
+}
+
+/* Efectos hover compartidos */
+.boton-reiniciar-juego:hover,
+.boton-fusion-total:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.boton-fusion-total:hover {
+    background: linear-gradient(
+        45deg,
+        rgba(156, 39, 176, 0.9) 0%,
+        rgba(123, 31, 162, 1) 100%
+    );
+}
+
+/* Efectos active compartidos */
+.boton-reiniciar-juego:active,
+.boton-fusion-total:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

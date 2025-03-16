@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Classes i objectes</title>
+    <script type="module" src="./dist/index.js"></script>
+    <script type="module">
+        import { ca_david } from './dist/index.js';
+
+        window.inicialitzacio = ca_david.inicialitzacio;
+        window.afegirPlat = ca_david.afegirPlat;
+        window.afegirClient = ca_david.afegirClient;
+        window.afegirComanda = ca_david.afegirComanda;
+        window.afegirComandaClient = ca_david.afegirComandaClient;
+        window.mostrarComandesClient = ca_david.mostrarComandesClient;
+
+    </script>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body onload="inicialitzacio()">
+    <section>
+        <input type="text" id="plat" placeholder="Plat i preu">
+        <button onclick="afegirPlat()">Afegir</button>
+        <input type="text" id="client" placeholder="Client (Nom,Cognoms,DNI,Targeta)">
+        <button onclick="afegirClient()">Afegir</button>
+        <input type="text" id="comanda" placeholder="Comanda(plats)">
+        <button onclick="afegirComanda()">Afegir</button>
+        <input type="text" id="comandaClient" placeholder="Comanda,DNI Client">
+        <button onclick="afegirComandaClient()">Afegir</button>
+    </section>
+
+    <div class="container">
+        <section id="restaurant">
+        </section>
+
+        <section id="clients">
+        </section>
+
+        <section id="comandes">
+        </section>
+    </div>
+
+    <section>
+        <input type="text" id="dniClient" placeholder="DNI client">
+        <button onclick="mostrarComandesClient()">Mostrar comandes</button>
+    </section>
+    <section id="comandesClient">
+        
+    </section>
+
+</body>
+
+</html>

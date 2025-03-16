@@ -1,0 +1,191 @@
+  /* Estilo general inspirado en Matrix */
+  body {
+    font-family: 'Courier New', monospace;
+    background-color: #000000;
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Fondo con efecto Matrix */
+  .background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('matrix-code.gif') repeat;
+    opacity: 0.2;
+    z-index: -1;
+  }
+
+  /* Estilos para títulos */
+  h1, h2 {
+    text-align: center;
+    color: #00ff00;
+    text-transform: uppercase;
+    font-size: 2rem;
+    text-shadow: 0 0 10px #00ff00;
+  }
+
+  /* Secciones principales */
+  section {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ff00;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #00ff00;
+  }
+
+  /* Campos de formulario */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="date"],
+  select {
+    width: 100%;
+    padding: 10px;
+    background: #003300;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    font-size: 1rem;
+    border-radius: 4px;
+    outline: none;
+    box-shadow: 0 0 5px #00ff00;
+  }
+
+  /* Botones */
+  button {
+    padding: 10px 20px;
+    background: #00ff00;
+    color: #000000;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px #000000;
+  }
+
+  button:hover {
+    background: #00cc00;
+    box-shadow: 0 0 15px #00ff00;
+  }
+
+  /* Listas */
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    background: #003300;
+    padding: 10px;
+    border-bottom: 1px solid #00ff00;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    box-shadow: 0 0 5px #00ff00;
+  }
+
+  /* Espaciado en formularios */
+  .form-group {
+    margin-bottom: 15px;
+    padding: 10px;
+  }
+
+  /* Tablas */
+  table {
+    margin-top: 20px;
+    padding: 10px;
+    border-spacing: 10px;
+  }
+
+  th, td {
+    padding: 12px;
+  }
+
+  th {
+    background: #003300;
+    color: #00ff00;
+  }
+
+  tr:nth-child(even) {
+    background: rgba(0, 255, 0, 0.1);
+  }
+
+  /* Controles y botones */
+  .controls {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .controls button {
+    margin: 5px;
+  }
+
+  /* Contenedores de entrada */
+  .input-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  /* Listado de clientes */
+  #clientList li {
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+
+  /* Selectores múltiples */
+  #generosFavoritos {
+    padding: 8px;
+  }
+
+  /* Ajuste del icono del calendario */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+  }
+
+  /* Estilos para el efecto Matrix */
+  #matrixBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    overflow: hidden;
+    z-index: -1; /* Para que esté detrás del contenido */
+  }
+
+  .matrix-character {
+    position: absolute;
+    color: lime;
+    font-family: monospace;
+    font-size: 16px;
+    user-select: none;
+    top: -100%; /* Comienza fuera de la pantalla (arriba) */
+    animation: fall linear infinite; /* Animación de caída */
+  }
+
+  /* Definir la animación */
+  @keyframes fall {
+    to {
+      top: 100%; /* Termina fuera de la pantalla (abajo) */
+    }
+  }
+
+  input[list] {
+    background: #003300;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    font-size: 1rem;
+    border-radius: 4px;
+    outline: none;
+    box-shadow: 0 0 5px #00ff00;
+  }
