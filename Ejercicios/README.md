@@ -24,23 +24,15 @@ En esta sección del repositorio, encontrarás una serie de ejercicios práctico
    - Este proyecto es una casa de subastas simplificada donde los usuarios pueden agregar categorías, productos, realizar ventas, ver las ventas realizadas y los beneficios obtenidos.  
    - [Ver ejercicio](https://github.com/Rediaj04/2daw-m06-projects/tree/main/Ejercicios/Creación_y_uso_de_colecciones)
 
-6. **Creación y uso de funciones** 🔧  
-   - Este ejercicio se centra en la creación y uso de funciones en JavaScript para realizar diversas operaciones y manipulaciones de datos.
-   - [Ver ejercicio](https://github.com/Rediaj04/2daw-m06-projects/tree/main/Ejercicios/Creación_y_uso_de_funciones)
-
-7. **Abstract Interface y Generics** 🧩  
-   - Este ejercicio se centra en el uso de interfaces y genéricos en TypeScript para gestionar diferentes tipos de datos y operaciones en una aplicación de gestión de recursos.
-   - [Ver ejercicio](https://github.com/Rediaj04/2daw-m06-projects/tree/main/Ejercicios/Abstract_Interface_i_Generics)
-
-8. **Gestión de Eventos** 🎉  
+6. **Gestión de Eventos** 🎉  
    - Este ejercicio permite a los usuarios interactuar con diferentes elementos de una página web, registrando eventos como clics, doble clics y movimientos del ratón.
    - [Ver ejercicio](https://github.com/Rediaj04/2daw-m06-projects/tree/main/Ejercicios/Gestio_de_esdeveniments)
 
-9. **J Clicker** 🖱️  
+7. **J Clicker** 🖱️  
    - Un juego simple de clicker donde los usuarios pueden hacer clic en un botón para incrementar un contador, con diferentes niveles de dificultad y recompensas.
    - [Ver ejercicio](https://github.com/Rediaj04/2daw-m06-projects/tree/main/Ejercicios/J_Clicker)
 
-10. **Manipulación del DOM y React** ⚛️  
+8. **Manipulación del DOM y React** ⚛️  
     - Este ejercicio muestra cómo manipular el DOM utilizando JavaScript y React, creando componentes interactivos y dinámicos.
     - [Ver ejercicio](https://github.com/Rediaj04/2daw-m06-projects/tree/main/Ejercicios/Manipulacion_del_DOM_y_React)
 

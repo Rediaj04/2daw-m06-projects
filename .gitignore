@@ -1,1 +1,70 @@
-node_modules
+# Dependencias
+node_modules/
+/.pnp
+.pnp.js
+
+# Archivos de producción
+/build/
+/Ejercicios/Creación_y_uso_de_colecciones/
+Ejercicios/Gestio_de_esdeveniments/dist
+Ejercicios/Creación_y_uso_de_colecciones/
+Ejercicios/Creación_y_uso_de_colecciones/built
+Ejercicios/J_Clicker/
+Manipulacion_del_DOM_y_React/node_modules
+Ejercicios/Programación_con_cookies/built
+Ejercicios/Programación_con_Local_Storage/built
+Ejercicios/Repetición_Alternada_de_Letra/built
+Ejercicios/Verificación_de_Divisibilidad/
+Proyectos/Aplicacion_Web/built
+Proyectos/Videoclub/dist
+Proyectos/FusionCraft/node_modules
+
+
+/dist/
+/built/
+*.log
+
+# Archivos de desarrollo
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# IDEs y editores
+/.idea/
+.project
+.classpath
+.settings/
+*.sublime-workspace
+.vscode/
+
+# Archivos de debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos de caché
+.cache/
+.parcel-cache/
+
+# Archivos de cobertura
+/coverage/
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Archivos compilados
+*.js.map
+*.js
+!*.config.js
+dist/
+built/
+
+# TypeScript
+*.tsbuildinfo
