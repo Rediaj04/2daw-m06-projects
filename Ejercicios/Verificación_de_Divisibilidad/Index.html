@@ -1,13 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comprobación Divisible por 4</title>
+    <link rel="stylesheet" href="./src/css/style.css">
 </head>
 <body>
-    <input type="text" id="numero">
-    <button onclick="calcula()">Presiona</button>
+    <div class="container">
+        <h1>Verificación de Divisibilidad por 4 🔢</h1>
+        <p>Ingresa un número y verifica si es divisible por 4:</p>
+        
+        <!-- Campo de entrada para el número -->
+        <input type="number" id="numero" placeholder="Ejemplo: 12">
+        
+        <!-- Botón para ejecutar la función -->
+        <button onclick="calcula()">Verificar</button>
+        
+        <!-- Elemento para mostrar el resultado -->
+        <p id="resultado" class="resultado"></p>
+    </div>
+
+    <script src="./built/index.js"></script>
 </body>
-<script src="./built/index.js"></script>
 </html>

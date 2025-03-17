@@ -1,5 +1,5 @@
-// Declaramos la variable 'lletra' de tipo string con el valor inicial "a"
-var lletra: string = "a";
+// Declaramos la variable 'lletra' de tipo string
+let lletra: string = "";
 
 // Declaramos la variable 'palabra' de tipo string como una cadena vacía donde se guardarán las repeticiones
 let palabra: string = "";
@@ -22,6 +22,15 @@ function subida() {
 
 // Función que será ejecutada cuando se presione el botón
 function calcula() {
+    const input = (document.getElementById("letraInput") as HTMLInputElement).value;
+
+    // Validación: solo permite una letra
+    if (input.length !== 1 || !/[a-zA-Z]/.test(input)) {
+        alert("Por favor, ingresa solo una letra válida.");
+        return;
+    }
+
     palabra = ""; // Reinicia la palabra antes de comenzar
+    lletra = input; // Asigna la letra ingresada
     subida(); // Llama a la función subida para generar la palabra
 }

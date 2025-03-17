@@ -4,22 +4,30 @@ node_modules/
 .pnp.js
 
 # Archivos de producción
-/build/
-/Ejercicios/Creación_y_uso_de_colecciones/
-Ejercicios/Gestio_de_esdeveniments/dist
-Ejercicios/Creación_y_uso_de_colecciones/
+
+## Ejercicios
 Ejercicios/Creación_y_uso_de_colecciones/built
-Ejercicios/J_Clicker/
-Manipulacion_del_DOM_y_React/node_modules
+Ejercicios/Gestio_de_esdeveniments/dist
+Ejercicios/J_Clicker/node_modules
+Ejercicios/Manipulacion_del_DOM_y_React/node_modules
 Ejercicios/Programación_con_cookies/built
 Ejercicios/Programación_con_Local_Storage/built
 Ejercicios/Repetición_Alternada_de_Letra/built
-Ejercicios/Verificación_de_Divisibilidad/
+Ejercicios/Verificación_de_Divisibilidad/built
+
+## Proyectos
 Proyectos/Aplicacion_Web/built
-Proyectos/Videoclub/dist
+Proyectos/Calculadora/built
+Proyectos/Color_picker/built
+Proyectos/Ejercicio1/built
+Proyectos/Ejercicio2/built
 Proyectos/FusionCraft/node_modules
+Proyectos/Videoclub/.vscode
+Proyectos/Videoclub/dist
+Proyectos/Web_dinamica/built
 
 
+/build/
 /dist/
 /built/
 *.log

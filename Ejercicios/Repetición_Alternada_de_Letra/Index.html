@@ -1,15 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alternador de letra</title>
+    <title>Repetición Alternada de Letra</title>
+    <link rel="stylesheet" href="./src/css/style.css">
 </head>
 <body>
-    <h1>Alternador de letras</h1>
-    <button onclick="calcula()">Presiona</button>
-    <p id="resultado"></p> 
+    <div class="container">
+        <h1>Repetición Alternada de Letra 🔠</h1>
+        <p>Ingresa una letra y presiona el botón para generar una secuencia alternada entre mayúsculas y minúsculas:</p>
+        
+        <!-- Campo de entrada para la letra -->
+        <input type="text" id="letraInput" maxlength="1" placeholder="Ejemplo: a">
+        
+        <!-- Botón para ejecutar la función -->
+        <button onclick="calcula()">Generar Secuencia</button>
+        
+        <!-- Elemento para mostrar el resultado -->
+        <p id="resultado" class="resultado"></p>
+    </div>
 
-    <script src="./built/index.js"></script> 
+    <script src="built/index.js"></script>
 </body>
 </html>
