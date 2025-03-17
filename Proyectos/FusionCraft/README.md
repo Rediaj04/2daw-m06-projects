@@ -8,7 +8,6 @@ FusionCraft es una aplicación web interactiva que combina elementos de creativi
 - 🔧 Sistema de creación intuitivo
 - 💾 Guardado automático de creaciones
 - 🌈 Personalización completa de elementos
-- 🎯 Sistema de logros y progresión
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -48,15 +47,6 @@ FusionCraft es una aplicación web interactiva que combina elementos de creativi
 1. Abre tu navegador y ve a `http://localhost:3000`
 2. Crea una nueva cuenta o inicia sesión
 3. ¡Comienza a crear y compartir tus creaciones!
-
-## ⚙️ Configuración
-
-El proyecto utiliza varias variables de entorno que puedes configurar:
-
-```env
-REACT_APP_API_URL=tu_url_api
-REACT_APP_STORAGE_KEY=tu_key
-```
 
 ## 📱 Compatibilidad
 
