@@ -4,8 +4,11 @@ import { TipoElemento, Elemento, Celda as CeldaTipo } from '../types/tipos';
 import { useSounds } from '../hooks/useSounds';
 
 const Tablero: React.FC = () => {
-    const [tablero, setTablero] = useState<CeldaTipo[][]>(() => {
-        const tablero = Array(7).fill(null).map(() =>
+    // Añadimos un ID de juego para forzar el reinicio completo
+    const [gameId, setGameId] = useState(0);
+    
+    const crearTableroInicial = () => {
+        const tableroInicial = Array(7).fill(null).map(() =>
             Array(7).fill(null).map(() => ({
                 elemento: null,
                 esGenerador: false,
@@ -14,14 +17,28 @@ const Tablero: React.FC = () => {
         );
 
         // Colocar generadores en posiciones específicas
-        tablero[0][0] = { elemento: null, esGenerador: true, tipoGenerador: 'a' }; // Generador de 'a'
-        tablero[0][6] = { elemento: null, esGenerador: true, tipoGenerador: 'z' }; // Generador de 'z'
+        tableroInicial[0][0] = { 
+            elemento: null, 
+            esGenerador: true, 
+            tipoGenerador: 'a' 
+        };
+        tableroInicial[0][6] = { 
+            elemento: null, 
+            esGenerador: true, 
+            tipoGenerador: 'z' 
+        };
 
-        return tablero;
-    });
+        return tableroInicial;
+    };
+
+    // Inicializar el tablero usando la función
+    const [tablero, setTablero] = useState(() => crearTableroInicial());
 
     const [error, setError] = useState<string | null>(null);
     const { playSound } = useSounds();
+
+    // Añadimos una referencia para controlar si el tablero está en estado inicial
+    const [isNewGame, setIsNewGame] = useState(true);
 
     const encontrarCeldaVaciaAleatoria = (): { fila: number; columna: number } | null => {
         // Crear un array de todas las celdas vacías disponibles
@@ -66,6 +83,11 @@ const Tablero: React.FC = () => {
     };
 
     const manejarFusion = (filaDestino: number, columnaDestino: number, elemento: Elemento, filaOrigen: number, columnaOrigen: number) => {
+        // Si es la primera acción después de un reinicio, asegurarse de que estamos trabajando con el tablero limpio
+        if (isNewGame) {
+            setIsNewGame(false);
+        }
+
         // Verificar si está intentando soltar en la misma posición
         if (filaOrigen === filaDestino && columnaOrigen === columnaDestino) {
             setError('No puedes soltar un bloque en su misma posición');
@@ -142,21 +164,12 @@ const Tablero: React.FC = () => {
     };
 
     const reiniciarTablero = () => {
-        const tableroInicial = Array(7).fill(null).map(() =>
-            Array(7).fill(null).map(() => ({
-                elemento: null,
-                esGenerador: false,
-                tipoGenerador: undefined,
-            } as CeldaTipo))
-        );
-
-        // Colocar generadores en posiciones específicas
-        tableroInicial[0][0] = { elemento: null, esGenerador: true, tipoGenerador: 'a' };
-        tableroInicial[0][6] = { elemento: null, esGenerador: true, tipoGenerador: 'z' };
-
-        setTablero(tableroInicial);
+        // Incrementar el gameId para forzar un re-render completo
+        setGameId(prevId => prevId + 1);
+        // Crear un nuevo tablero inicial
+        setTablero(crearTableroInicial());
         setError(null);
-        playSound('reset'); // Sonido de reinicio
+        playSound('reset');
     };
 
     const fusionTotal = () => {
@@ -245,12 +258,12 @@ const Tablero: React.FC = () => {
     return (
         <div className="tablero-container">
             {error && <div className="error-mensaje">{error}</div>}
-            <div className="tablero">
+            <div key={gameId} className="tablero">
                 {tablero.map((fila, filaIndex) => (
-                    <div key={filaIndex} className="fila">
+                    <div key={`${gameId}-${filaIndex}`} className="fila">
                         {fila.map((celda, columnaIndex) => (
                             <Celda
-                                key={columnaIndex}
+                                key={`${gameId}-${filaIndex}-${columnaIndex}`}
                                 celda={celda}
                                 onDrop={(elemento, filaDestino, columnaDestino, filaOrigen, columnaOrigen) =>
                                     manejarFusion(filaDestino, columnaDestino, elemento, filaOrigen, columnaOrigen)
