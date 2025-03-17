@@ -74,7 +74,7 @@ Las contribuciones son bienvenidas. Para contribuir:
 
 ## 📝 Licencia
 
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.md) para más detalles.
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](https://github.com/Rediaj04/2daw-m06-projects/blob/main/LICENSE) para más detalles.
 
 🔜 A medida que avance en mis desarrollos y ejercicios, se irán añadiendo más recursos a este repositorio.
 
