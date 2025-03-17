@@ -12,7 +12,7 @@ const ElementoArrastrable: React.FC<ElementoArrastrableProps> = ({ elemento, fil
     const ref = useRef<HTMLDivElement>(null);
     const [{ isDragging }, drag] = useDrag(() => ({
         type: 'BLOQUE',
-        item: { ...elemento, fila, columna }, // Incluir la posición de origen
+        item: { ...elemento, fila, columna }, 
         collect: (monitor) => ({
             isDragging: monitor.isDragging(),
         }),

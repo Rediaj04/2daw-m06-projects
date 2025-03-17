@@ -118,6 +118,12 @@ const Tablero: React.FC = () => {
 
         // Verificar si los elementos son del mismo tipo
         if (elementoReal.tipo === elementoDestino.tipo) {
+            // Verificar si ya está en nivel máximo
+            if (elementoReal.tipo === 'e' || elementoReal.tipo === 'k') {
+                setError(`No se pueden fusionar bloques de nivel máximo (${elementoReal.tipo})`);
+                return;
+            }
+
             const siguienteNivel = obtenerSiguienteNivel(elementoReal.tipo);
             
             if (siguienteNivel) {
@@ -132,14 +138,12 @@ const Tablero: React.FC = () => {
                 
                 // Mostrar mensaje si es nivel máximo
                 if (siguienteNivel === 'e' || siguienteNivel === 'k') {
-                    setError(`¡Este bloque ha alcanzado su nivel máximo! (${siguienteNivel})`);
-                    playSound('maxLevel'); // Sonido de nivel máximo
+                    setError(`¡Has alcanzado el nivel máximo! (${siguienteNivel})`);
+                    playSound('maxLevel');
                 } else {
                     setError(null);
-                    playSound('fusion'); // Sonido de fusión normal
+                    playSound('fusion');
                 }
-            } else {
-                setError('No se pueden fusionar más estos elementos');
             }
         } else {
             setError(`Solo puedes fusionar elementos del mismo tipo (${elementoReal.tipo} ≠ ${elementoDestino.tipo})`);
@@ -184,7 +188,11 @@ const Tablero: React.FC = () => {
             for (let fila = 0; fila < tablero.length; fila++) {
                 for (let columna = 0; columna < tablero[fila].length; columna++) {
                     const elemento = tablero[fila][columna].elemento;
-                    if (elemento && !tablero[fila][columna].esGenerador) {
+                    // Excluir elementos de nivel máximo y generadores
+                    if (elemento && 
+                        !tablero[fila][columna].esGenerador && 
+                        elemento.tipo !== 'e' && 
+                        elemento.tipo !== 'k') {
                         if (!posicionesPorTipo.has(elemento.tipo)) {
                             posicionesPorTipo.set(elemento.tipo, []);
                         }

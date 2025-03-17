@@ -38,7 +38,7 @@ const Celda: React.FC<CeldaProps> = ({ celda, onDrop, onClick, fila, columna }) 
         >
             {celda.esGenerador ? (
                 <Generador
-                    tipo={celda.tipoGenerador || 'a'} // Cambia 'madera' por 'a' o 'z'
+                    tipo={celda.tipoGenerador || 'a'} 
                     onClick={onClick}
                 />
             ) : celda.elemento ? (
