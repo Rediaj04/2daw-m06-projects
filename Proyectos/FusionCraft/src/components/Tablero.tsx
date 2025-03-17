@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Celda from './Celda';
 import { TipoElemento, Elemento, Celda as CeldaTipo } from '../types/tipos';
 import { useSounds } from '../hooks/useSounds';
+import FusionEffect from './FusionEfecto'; // Asegúrate de importar el componente FusionEffect
 
 const Tablero: React.FC = () => {
     // Añadimos un ID de juego para forzar el reinicio completo
@@ -39,6 +40,9 @@ const Tablero: React.FC = () => {
 
     // Añadimos una referencia para controlar si el tablero está en estado inicial
     const [isNewGame, setIsNewGame] = useState(true);
+
+    // Estado para el efecto de fusión
+    const [fusionEffect, setFusionEffect] = useState<{x: number; y: number; nivel: TipoElemento} | null>(null);
 
     const encontrarCeldaVaciaAleatoria = (): { fila: number; columna: number } | null => {
         // Crear un array de todas las celdas vacías disponibles
@@ -127,6 +131,19 @@ const Tablero: React.FC = () => {
             const siguienteNivel = obtenerSiguienteNivel(elementoReal.tipo);
             
             if (siguienteNivel) {
+                // Calcular la posición del efecto
+                const celdaElement = document.querySelector(
+                    `[data-fila="${filaDestino}"][data-columna="${columnaDestino}"]`
+                );
+                if (celdaElement) {
+                    const rect = celdaElement.getBoundingClientRect();
+                    setFusionEffect({
+                        x: rect.left + rect.width / 2,
+                        y: rect.top + rect.height / 2,
+                        nivel: siguienteNivel
+                    });
+                }
+
                 const nuevoTablero = [...tablero];
                 nuevoTablero[filaOrigen][columnaOrigen].elemento = null;
                 nuevoTablero[filaDestino][columnaDestino].elemento = {
@@ -136,7 +153,6 @@ const Tablero: React.FC = () => {
                 
                 setTablero(nuevoTablero);
                 
-                // Mostrar mensaje si es nivel máximo
                 if (siguienteNivel === 'e' || siguienteNivel === 'k') {
                     setError(`¡Has alcanzado el nivel máximo! (${siguienteNivel})`);
                     playSound('maxLevel');
@@ -283,11 +299,21 @@ const Tablero: React.FC = () => {
                                 }}
                                 fila={filaIndex}
                                 columna={columnaIndex}
+                                data-fila={filaIndex}
+                                data-columna={columnaIndex}
                             />
                         ))}
                     </div>
                 ))}
             </div>
+            {fusionEffect && (
+                <FusionEffect
+                    x={fusionEffect.x}
+                    y={fusionEffect.y}
+                    nivel={fusionEffect.nivel}
+                    onComplete={() => setFusionEffect(null)}
+                />
+            )}
             <div className="botones-container">
                 <button className="boton-reiniciar-juego" onClick={reiniciarTablero}>
                     Reiniciar Juego

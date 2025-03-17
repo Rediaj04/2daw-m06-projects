@@ -4,7 +4,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: url('./assets/images/fondo_2560x1440.png') no-repeat center center fixed;
+    background: url('../assets/images/fondo_2560x1440.png') no-repeat center center fixed;
     background-size: cover;
     font-family: 'Press Start 2P', Arial, sans-serif;
     min-height: 100vh;

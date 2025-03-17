@@ -35,6 +35,8 @@ const Celda: React.FC<CeldaProps> = ({ celda, onDrop, onClick, fila, columna }) 
             ref={ref}
             onClick={onClick}
             className={`celda ${isOver ? 'sobre' : ''} ${celda.esGenerador ? 'generador' : ''}`}
+            data-fila={fila}
+            data-columna={columna}
         >
             {celda.esGenerador ? (
                 <Generador

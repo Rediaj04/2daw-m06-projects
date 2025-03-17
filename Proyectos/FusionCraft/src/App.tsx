@@ -2,7 +2,7 @@ import React from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import Tablero from './components/Tablero';
-import './App.css';
+import './styles/App.css';
 
 const App: React.FC = () => {
     return (
