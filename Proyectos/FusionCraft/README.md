@@ -4,7 +4,7 @@
 
 [![React](https://img.shields.io/badge/React-19.0.0-61DAFB?logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-4.9.5-3178C6?logo=typescript)](https://www.typescriptlang.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)]([LICENSE](https://github.com/Rediaj04/2daw-m06-projects/blob/main/LICENSE))
 
 Un juego de fusión de elementos inspirado en juegos como Triple Town y 2048, desarrollado con React y TypeScript.
 
