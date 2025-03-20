@@ -1,11 +1,25 @@
+/**
+ * @file Tablero.tsx
+ * @description Componente principal del juego que gestiona el tablero de juego.
+ *             Maneja la lógica de fusiones, generación de elementos y el estado general del juego.
+ * 
+ * Funcionalidades principales:
+ * - crearTableroInicial: Inicializa el tablero con los generadores
+ * - encontrarCeldaVaciaAleatoria: Busca espacios disponibles para nuevos elementos
+ * - obtenerSiguienteNivel: Determina el siguiente nivel en la cadena de fusiones
+ * - manejarFusion: Controla la lógica de fusión entre elementos
+ * - manejarGeneracion: Crea nuevos elementos en el tablero
+ * - reiniciarTablero: Vuelve el tablero a su estado inicial
+ * - fusionTotal: Realiza todas las fusiones posibles automáticamente
+ */
+
 import React, { useState } from 'react';
 import Celda from './Celda';
 import { TipoElemento, Elemento, Celda as CeldaTipo } from '../types/tipos';
 import { useSounds } from '../hooks/useSounds';
-import FusionEffect from './FusionEfecto'; // Asegúrate de importar el componente FusionEffect
+import FusionEffect from './FusionEfecto'; 
 
 const Tablero: React.FC = () => {
-    // Añadimos un ID de juego para forzar el reinicio completo
     const [gameId, setGameId] = useState(0);
     
     const crearTableroInicial = () => {

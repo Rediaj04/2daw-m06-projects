@@ -1,53 +1,66 @@
+/**
+ * @file ElementoArrastrable.tsx
+ * @description Componente que representa un elemento que puede ser arrastrado en el tablero.
+ *             Implementa la funcionalidad de drag and drop y maneja la visualización
+ *             de los diferentes tipos de elementos mediante emojis.
+ */
+
 import React, { useRef } from 'react';
 import { useDrag } from 'react-dnd';
 import { Elemento } from '../types/tipos';
 
+// Interfaz que define las propiedades que recibe el componente
 interface ElementoArrastrableProps {
-    elemento: Elemento;
-    fila: number;
-    columna: number;
+    elemento: Elemento;    // Información del elemento (tipo, nivel, etc)
+    fila: number;         // Posición de fila actual del elemento
+    columna: number;      // Posición de columna actual del elemento
 }
 
 const ElementoArrastrable: React.FC<ElementoArrastrableProps> = ({ elemento, fila, columna }) => {
+    // Referencia al elemento DOM
     const ref = useRef<HTMLDivElement>(null);
+
+    // Hook de react-dnd para manejar el drag del elemento
     const [{ isDragging }, drag] = useDrag(() => ({
-        type: 'BLOQUE',
-        item: { ...elemento, fila, columna }, 
+        type: 'BLOQUE',   // Tipo de elemento arrastrable
+        item: { ...elemento, fila, columna },  // Datos que se pasan durante el arrastre
         collect: (monitor) => ({
-            isDragging: monitor.isDragging(),
+            isDragging: monitor.isDragging(),  // Estado que indica si el elemento está siendo arrastrado
         }),
     }));
 
+    // Conecta la referencia con el hook de drag
     drag(ref);
 
+    // Función que convierte el tipo de elemento en su emoji correspondiente
     const getEmoji = (tipo: string): string => {
         switch (tipo) {
             // Emojis para la cadena de 'a'
             case 'a':
-                return '🟦';
+                return '🟦';  // Azul
             case 'b':
-                return '🟩';
+                return '🟩';  // Verde
             case 'c':
-                return '🟨';
+                return '🟨';  // Amarillo
             case 'd':
-                return '🟧';
+                return '🟧';  // Naranja
             case 'e':
-                return '🟥';
+                return '🟥';  // Rojo
 
             // Emojis para la cadena de 'z'
             case 'z':
-                return '🟪';
+                return '🟪';  // Púrpura
             case 'x':
-                return '🟫';
+                return '🟫';  // Marrón
             case 'n':
-                return '⬛';
+                return '⬛';  // Negro
             case 'm':
-                return '⬜';
+                return '⬜';  // Blanco
             case 'k':
-                return '🔳';
+                return '🔳';  // Gris
 
             default:
-                return '❓';
+                return '❓';  // Emoji por defecto para tipos desconocidos
         }
     };
 
