@@ -65,17 +65,11 @@ npm start
 
 ## 🛠️ Tecnologías
 
-- **Frontend**
-  - React 19.0.0
-  - TypeScript 4.9.5
-  - react-dnd 16.0.1
-  - CSS3 con animaciones
-
-- **Desarrollo**
-  - Node.js
-  - npm
-  - ESLint
-  - Jest para testing
+- React 
+- TypeScript
+- HTML5 & CSS3
+- Node.js
+- NPM
 
 ## 📁 Estructura del Proyecto
 ```bash
@@ -105,14 +99,6 @@ FusionCraft/
 - 🔧 Sistema de fusión intuitivo
 - 🎵 Efectos de sonido inmersivos
 - 🌈 Personalización de elementos mediante emojis
-
-## 🛠️ Tecnologías Utilizadas
-
-- React 
-- TypeScript
-- HTML5 & CSS3
-- Node.js
-- NPM
 
 ## 🎯 Scripts Disponibles
 
