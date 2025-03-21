@@ -8,7 +8,7 @@ const App: React.FC = () => {
     return (
         <DndProvider backend={HTML5Backend}>
             <div className="App">
-                <h1>FusionCraft</h1>
+                <h1>FusionPlus</h1>
                 <Tablero />
             </div>
         </DndProvider>

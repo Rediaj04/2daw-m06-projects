@@ -32,44 +32,12 @@ const ElementoArrastrable: React.FC<ElementoArrastrableProps> = ({ elemento, fil
     // Conecta la referencia con el hook de drag
     drag(ref);
 
-    // Función que convierte el tipo de elemento en su emoji correspondiente
-    const getEmoji = (tipo: string): string => {
-        switch (tipo) {
-            // Emojis para la cadena de 'a'
-            case 'a':
-                return '🟦';  // Azul
-            case 'b':
-                return '🟩';  // Verde
-            case 'c':
-                return '🟨';  // Amarillo
-            case 'd':
-                return '🟧';  // Naranja
-            case 'e':
-                return '🟥';  // Rojo
-
-            // Emojis para la cadena de 'z'
-            case 'z':
-                return '🟪';  // Púrpura
-            case 'x':
-                return '🟫';  // Marrón
-            case 'n':
-                return '⬛';  // Negro
-            case 'm':
-                return '⬜';  // Blanco
-            case 'k':
-                return '🔳';  // Gris
-
-            default:
-                return '❓';  // Emoji por defecto para tipos desconocidos
-        }
-    };
-
     return (
         <div
             ref={ref}
             className={`elemento-arrastrable ${isDragging ? 'arrastrando' : ''}`}
         >
-            <div className="elemento-icono">{getEmoji(elemento.tipo)}</div>
+            <div className="elemento-icono">{elemento.tipo}</div>
         </div>
     );
 };

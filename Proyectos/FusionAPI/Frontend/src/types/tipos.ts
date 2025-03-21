@@ -8,12 +8,12 @@
 // Tipos de elementos disponibles en el juego
 // a-e: cadena básica de elementos
 // z-k: cadena especial de elementos
-export type TipoElemento = 'a' | 'b' | 'c' | 'd' | 'e' | 'z' | 'x' | 'n' | 'm' | 'k';
+export type TipoElemento = string;
 
 // Estructura de un elemento en el juego
 export interface Elemento {
-    tipo: TipoElemento;    // Tipo del elemento (a-e o z-k)
-    nivel: number;         // Nivel actual del elemento
+    tipo: TipoElemento;
+    nivel: number;
 }
 
 // Estructura de una celda en el tablero

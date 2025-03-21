@@ -14,41 +14,13 @@ interface GeneradorProps {
 }
 
 const Generador: React.FC<GeneradorProps> = ({ tipo, onClick }) => {
-    // Función que convierte el tipo de elemento en su emoji correspondiente
+    // Función que devuelve el emoji inicial según el tipo
     const getEmoji = (tipo: TipoElemento): string => {
-        switch (tipo) {
-            // Emojis para la cadena de elementos básicos
-            case 'a':
-                return '🟦';  // Elemento básico azul
-            case 'b':
-                return '🟩';  // Elemento básico verde
-            case 'c':
-                return '🟨';  // Elemento básico amarillo
-            case 'd':
-                return '🟧';  // Elemento básico naranja
-            case 'e':
-                return '🟥';  // Elemento básico rojo
-
-            // Emojis para la cadena de elementos especiales
-            case 'z':
-                return '🟪';  // Elemento especial púrpura
-            case 'x':
-                return '🟫';  // Elemento especial marrón
-            case 'n':
-                return '⬛';  // Elemento especial negro
-            case 'm':
-                return '⬜';  // Elemento especial blanco
-            case 'k':
-                return '🔳';  // Elemento especial gris
-
-            default:
-                return '❓';  // Emoji por defecto para tipos desconocidos
-        }
+        return tipo === 'a' ? '🔥' : '💧';
     };
 
     return (
         <div className="generador" onClick={onClick}>
-            {/* Muestra el emoji correspondiente al tipo de elemento que genera */}
             <div className="generador-icono">{getEmoji(tipo)}</div>
         </div>
     );

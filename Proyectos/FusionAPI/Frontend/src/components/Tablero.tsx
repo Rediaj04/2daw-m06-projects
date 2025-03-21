@@ -23,21 +23,21 @@ const Tablero: React.FC = () => {
     const [gameId, setGameId] = useState(0);
     
     const crearTableroInicial = () => {
-        const tableroInicial = Array(7).fill(null).map(() =>
-            Array(7).fill(null).map(() => ({
+        const tableroInicial = Array(15).fill(null).map(() =>
+            Array(15).fill(null).map(() => ({
                 elemento: null,
                 esGenerador: false,
                 tipoGenerador: undefined,
             } as CeldaTipo))
         );
 
-        // Colocar generadores en posiciones específicas
+        // Mantener los generadores en las esquinas superiores
         tableroInicial[0][0] = { 
             elemento: null, 
             esGenerador: true, 
             tipoGenerador: 'a' 
         };
-        tableroInicial[0][6] = { 
+        tableroInicial[0][14] = { // Cambiado de 19 a 14 para la última columna
             elemento: null, 
             esGenerador: true, 
             tipoGenerador: 'z' 
@@ -81,26 +81,21 @@ const Tablero: React.FC = () => {
         return celdasVacias[indiceAleatorio];
     };
 
-    const obtenerSiguienteNivel = (tipo: TipoElemento): TipoElemento | null => {
-        const fusiones: Record<TipoElemento, TipoElemento> = {
-            // Cadena de fusión para 'a'
-            a: 'b',
-            b: 'c',
-            c: 'd',
-            d: 'e',
-            e: 'e', // No se puede fusionar más
-
-            // Cadena de fusión para 'z'
-            z: 'x',
-            x: 'n',
-            n: 'm',
-            m: 'k',
-            k: 'k', // No se puede fusionar más
-        };
-        return fusiones[tipo] || null;
+    const obtenerSiguienteElemento = async (emoji: string): Promise<string | null> => {
+        try {
+            const response = await fetch(`http://localhost:8080/api/v1/emojis?emoji=${encodeURIComponent(emoji)}`);
+            if (!response.ok) {
+                throw new Error('Error en la petición');
+            }
+            const nuevoEmoji = await response.text();
+            return nuevoEmoji;
+        } catch (error) {
+            console.error('Error al obtener el siguiente elemento:', error);
+            return null;
+        }
     };
 
-    const manejarFusion = (filaDestino: number, columnaDestino: number, elemento: Elemento, filaOrigen: number, columnaOrigen: number) => {
+    const manejarFusion = async (filaDestino: number, columnaDestino: number, elemento: Elemento, filaOrigen: number, columnaOrigen: number) => {
         // Si es la primera acción después de un reinicio, asegurarse de que estamos trabajando con el tablero limpio
         if (isNewGame) {
             setIsNewGame(false);
@@ -118,12 +113,47 @@ const Tablero: React.FC = () => {
             return;
         }
 
+        const celdaDestino = tablero[filaDestino][columnaDestino];
         const elementoOrigen = tablero[filaOrigen][columnaOrigen].elemento;
-        const elementoDestino = tablero[filaDestino][columnaDestino].elemento;
         const elementoReal = elementoOrigen || elemento;
 
-        // Si no hay elemento en el destino, simplemente mover
-        if (!elementoDestino) {
+        if (celdaDestino.elemento) {
+            // Verificar si los emojis son iguales
+            console.log('Comparando:', {
+                destino: celdaDestino.elemento.tipo,
+                origen: elementoReal.tipo
+            });
+            
+            if (celdaDestino.elemento.tipo === elementoReal.tipo) {
+                console.log('Emojis iguales, pidiendo siguiente a la API');
+                // Usar el emoji actual para pedir el siguiente
+                const siguienteEmoji = await obtenerSiguienteElemento(elementoReal.tipo);
+                
+                console.log('API devolvió:', siguienteEmoji);
+                
+                if (siguienteEmoji) {
+                    const nuevoElemento: Elemento = {
+                        tipo: siguienteEmoji,
+                        nivel: 1
+                    };
+
+                    const nuevoTablero = [...tablero];
+                    nuevoTablero[filaDestino][columnaDestino].elemento = nuevoElemento;
+                    nuevoTablero[filaOrigen][columnaOrigen].elemento = null;
+                    setTablero(nuevoTablero);
+
+                    playSound('fusion');
+                    setFusionEffect({
+                        x: columnaDestino * 30 + 15,
+                        y: filaDestino * 30 + 15,
+                        nivel: siguienteEmoji as TipoElemento
+                    });
+                }
+            } else {
+                console.log('Los emojis no son iguales, no se puede fusionar');
+                setError('No se pueden fusionar elementos diferentes');
+            }
+        } else {
             const nuevoTablero = [...tablero];
             nuevoTablero[filaOrigen][columnaOrigen].elemento = null;
             nuevoTablero[filaDestino][columnaDestino].elemento = {
@@ -131,56 +161,15 @@ const Tablero: React.FC = () => {
             };
             setTablero(nuevoTablero);
             setError(null);
-            return;
-        }
-
-        // Verificar si los elementos son del mismo tipo
-        if (elementoReal.tipo === elementoDestino.tipo) {
-            // Verificar si ya está en nivel máximo
-            if (elementoReal.tipo === 'e' || elementoReal.tipo === 'k') {
-                setError(`No se pueden fusionar bloques de nivel máximo (${elementoReal.tipo})`);
-                return;
-            }
-
-            const siguienteNivel = obtenerSiguienteNivel(elementoReal.tipo);
-            
-            if (siguienteNivel) {
-                // Calcular la posición del efecto
-                const celdaElement = document.querySelector(
-                    `[data-fila="${filaDestino}"][data-columna="${columnaDestino}"]`
-                );
-                if (celdaElement) {
-                    const rect = celdaElement.getBoundingClientRect();
-                    setFusionEffect({
-                        x: rect.left + rect.width / 2,
-                        y: rect.top + rect.height / 2,
-                        nivel: siguienteNivel
-                    });
-                }
-
-                const nuevoTablero = [...tablero];
-                nuevoTablero[filaOrigen][columnaOrigen].elemento = null;
-                nuevoTablero[filaDestino][columnaDestino].elemento = {
-                    tipo: siguienteNivel,
-                    nivel: 1
-                };
-                
-                setTablero(nuevoTablero);
-                
-                if (siguienteNivel === 'e' || siguienteNivel === 'k') {
-                    setError(`¡Has alcanzado el nivel máximo! (${siguienteNivel})`);
-                    playSound('maxLevel');
-                } else {
-                    setError(null);
-                    playSound('fusion');
-                }
-            }
-        } else {
-            setError(`Solo puedes fusionar elementos del mismo tipo (${elementoReal.tipo} ≠ ${elementoDestino.tipo})`);
         }
     };
 
     const manejarGeneracion = (tipoGenerador: TipoElemento) => {
+        const nuevoElemento: Elemento = {
+            tipo: tipoGenerador === 'a' ? '🔥' : '💧',
+            nivel: 1
+        };
+        
         const celdaVacia = encontrarCeldaVaciaAleatoria();
         if (!celdaVacia) {
             setError('¡Tablero lleno! Fusiona algunos bloques para liberar espacio');
@@ -188,13 +177,10 @@ const Tablero: React.FC = () => {
         }
 
         const nuevoTablero = [...tablero];
-        nuevoTablero[celdaVacia.fila][celdaVacia.columna].elemento = {
-            tipo: tipoGenerador,
-            nivel: 1
-        };
+        nuevoTablero[celdaVacia.fila][celdaVacia.columna].elemento = nuevoElemento;
         setTablero(nuevoTablero);
         setError(null);
-        playSound('generate'); // Reproducir sonido de generación
+        playSound('generate');
     };
 
     const reiniciarTablero = () => {
@@ -223,10 +209,10 @@ const Tablero: React.FC = () => {
                         !tablero[fila][columna].esGenerador && 
                         elemento.tipo !== 'e' && 
                         elemento.tipo !== 'k') {
-                        if (!posicionesPorTipo.has(elemento.tipo)) {
-                            posicionesPorTipo.set(elemento.tipo, []);
+                        if (!posicionesPorTipo.has(elemento.tipo as TipoElemento)) {
+                            posicionesPorTipo.set(elemento.tipo as TipoElemento, []);
                         }
-                        posicionesPorTipo.get(elemento.tipo)?.push({ fila, columna });
+                        posicionesPorTipo.get(elemento.tipo as TipoElemento)?.push({ fila, columna });
                     }
                 }
             }
@@ -241,11 +227,11 @@ const Tablero: React.FC = () => {
             return parejas;
         };
 
-        const realizarFusiones = () => {
+        const realizarFusiones = async () => {
             const parejas = encontrarParejas();
             
             // Realizar fusiones usando manejarFusion
-            parejas.forEach(({ tipo, posiciones }) => {
+            for (const { posiciones } of parejas) {
                 while (posiciones.length >= 2) {
                     // Tomar dos posiciones aleatorias
                     const indice1 = Math.floor(Math.random() * posiciones.length);
@@ -260,8 +246,7 @@ const Tablero: React.FC = () => {
                     const elementoOrigen = tablero[pos1.fila][pos1.columna].elemento;
                     
                     if (elementoOrigen) {
-                        // Usar manejarFusion para mantener la consistencia
-                        manejarFusion(
+                        await manejarFusion(
                             pos2.fila,
                             pos2.columna,
                             elementoOrigen,
@@ -271,17 +256,16 @@ const Tablero: React.FC = () => {
                         seRealizoFusion = true;
                     }
                 }
-            });
+            }
 
-            // Si se realizaron fusiones, intentar más fusiones
+            // Si se realizaron fusiones, intentar más fusiones después de una pequeña pausa
             if (seRealizoFusion) {
-                // Pequeña pausa para permitir que el estado se actualice
                 setTimeout(() => {
                     const masParejasDisponibles = encontrarParejas().length > 0;
                     if (masParejasDisponibles) {
                         realizarFusiones();
                     }
-                }, 100);
+                }, 300); // Aumentado el tiempo para dar más tiempo a las animaciones
             }
         };
 

@@ -1,148 +1,137 @@
-# 🎮 FusionCraft
+# 🎮 FusionPlus
 
-<div align="center">
+FusionPlus es un juego de fusión de elementos inspirado en juegos populares como Little Alchemy. Combina elementos básicos para descubrir nuevas combinaciones y desbloquear elementos más complejos. ¡Experimenta con diferentes combinaciones y descubre todos los elementos posibles!
 
-[![React](https://img.shields.io/badge/React-19.0.0-61DAFB?logo=react)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-4.9.5-3178C6?logo=typescript)](https://www.typescriptlang.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)]([LICENSE](https://github.com/Rediaj04/2daw-m06-projects/blob/main/LICENSE))
+## ✨ Demostración
 
-Un juego de fusión de elementos inspirado en juegos como Triple Town y 2048, desarrollado con React y TypeScript.
+[Aquí puedes agregar un GIF o imagen del juego en acción]
 
-[Características](#-características) •
-[Instalación](#-instalación) •
-[Uso](#-uso) •
-[Tecnologías](#%EF%B8%8F-tecnologías) •
-[Estructura](#-estructura-del-proyecto)
+## 🚀 Características
 
-</div>
+- **Sistema Drag & Drop**: Interfaz intuitiva de arrastrar y soltar elementos
+- **Animaciones Fluidas**: Efectos visuales atractivos durante las fusiones
+- **Efectos de Sonido**: Retroalimentación auditiva para cada acción
+- **Diseño Responsivo**: Jugable en dispositivos móviles y escritorio
+- **Estilo Retro**: Interfaz con fuente "Press Start 2P" para una experiencia nostálgica
+- **Sistema de Fusión**: API inteligente para gestionar combinaciones
 
-## 🎯 Características
+## 🛠️ Stack Tecnológico
 
-- **Sistema de Fusión**: Combina elementos del mismo tipo para crear versiones mejoradas
-- **Dos Cadenas de Evolución**: 
-  - Cadena Básica: `🟦 → 🟩 → 🟨 → 🟧 → 🟥`
-  - Cadena Especial: `🟪 → 🟫 → ⬛ → ⬜ → 🔳`
-- **Efectos Visuales**: Animaciones suaves y efectos de partículas en las fusiones
-- **Efectos de Sonido**: Feedback auditivo para cada acción del juego
-- **Controles Intuitivos**: Sistema drag & drop para mover elementos
-- **Funciones Especiales**: 
-  - Fusión automática de elementos
-  - Reinicio rápido del tablero
-  - Generadores de elementos básicos y especiales
+### Frontend
+- React 19.0.0
+- TypeScript 4.9.5
+- React DnD (Sistema de Drag & Drop)
+- CSS Modular
+- Gestión de Estados Reactiva
 
-## 🚀 Instalación
+### Backend
+- API REST para combinaciones de elementos
+- Sistema de persistencia de datos
+- Lógica de fusión inteligente
 
-1. **Clonar el repositorio**
+## 📋 Prerrequisitos
+
 ```bash
-git clone https://github.com/Rediaj04/book-scraping-management
-cd Proyectos/FusionCraft/
+node >= 16.x
+npm >= 8.x
 ```
 
-2. **Instalar dependencias**
+## 🔧 Instalación y Uso
+
+1. **Clona el repositorio**
 ```bash
+git clone https://github.com/Rediaj04/2daw-m06-projects.git
+```
+
+2. **Configura el Frontend**
+```bash
+cd cd Proyectos/FusionAPI/Frontend
 npm install
 ```
 
-3. **Iniciar el servidor de desarrollo**
+3. **Inicia el desarrollo**
 ```bash
 npm start
 ```
 
-## 💻 Uso
-
-1. **Iniciar el Juego**
-   - Abre `http://localhost:3000` en tu navegador
-   - El tablero comenzará vacío con dos generadores
-
-2. **Mecánicas Básicas**
-   - Click en los generadores para crear elementos
-   - Arrastra y suelta elementos del mismo tipo para fusionarlos
-   - Combina elementos para alcanzar los niveles máximos (🟥 o 🔳)
-
-3. **Controles Especiales**
-   - `Fusión Total`: Combina automáticamente todos los elementos compatibles
-   - `Reiniciar`: Vuelve el tablero a su estado inicial
-
-## 🛠️ Tecnologías
-
-- React 
-- TypeScript
-- HTML5 & CSS3
-- Node.js
-- NPM
-
-## 📁 Estructura del Proyecto
+4. **Accede a la aplicación** 
 ```bash
-FusionCraft/
-├── src/
-│ ├── components/ # Componentes React
-│ │ ├── Tablero.tsx # Componente principal del juego
-│ │ ├── Celda.tsx # Celda individual del tablero
-│ │ ├── Generador.tsx # Generador de elementos
-│ │ ├── ElementoArrastrable.tsx # Elementos arrastrables
-│ │ └── FusionEfecto.tsx # Efectos visuales de fusión
-│ ├── hooks/ # Hooks personalizados
-│ │ └── useSounds.ts # Hook para efectos de sonido
-│ ├── types/ # Definiciones de TypeScript
-│ │ └── tipos.ts # Tipos e interfaces del juego
-│ ├── styles/ # Archivos CSS
-│ │ ├── App.css # Estilos principales
-│ │ └── FusionEffect.css # Estilos de efectos
-│ └── assets/ # Recursos
-│ └── sounds/ # Efectos de sonido
-├── public/ # Archivos estáticos
-└── package.json # Dependencias y scripts
+Abre http://localhost:3000 en tu navegador 
 ```
-## 📋 Características Principales
 
-- 🎨 Interfaz de usuario moderna y responsive
-- 🔧 Sistema de fusión intuitivo
-- 🎵 Efectos de sonido inmersivos
-- 🌈 Personalización de elementos mediante emojis
 
-## 🎯 Scripts Disponibles
+5. **Ejecuta el servidor**
+```bash
+cd Proyectos/FusionAPI/M06-UF4-ConsultaApi-develop/  
+```
 
-- `npm start` - Inicia el servidor de desarrollo
-- `npm test` - Ejecuta los tests
-- `npm run build` - Crea la versión de producción
-- `npm run eject` - Expone las configuraciones de webpack
+6. **Inicia el desarrollo**
+```bash
+mvn spring-boot:run
+```  
 
-## 📱 Compatibilidad
+## 🎮 Guía de Juego
 
-- ✅ Chrome (última versión)
-- ✅ Firefox (última versión)
-- ✅ Safari (última versión)
-- ✅ Edge (última versión)
-- ✅ Dispositivos móviles y tablets
+### Elementos Básicos
+- 🔥 **Fuego**: Elemento básico inicial
+- 💧 **Agua**: Elemento básico inicial
+- Y más por descubrir...
 
-## 🐛 Reporte de Bugs
+### Cómo Jugar
+1. Comienza con los elementos básicos de los generadores
+2. Arrastra un elemento sobre otro para intentar una fusión
+3. Si la combinación es válida, ¡descubrirás un nuevo elemento!
+4. Experimenta con diferentes combinaciones
+5. Desbloquea elementos más complejos
 
-Si encuentras algún bug o tienes una sugerencia, por favor abre un issue en el repositorio del proyecto:
+## 🔌 Sistema de Fusión
 
-1. Ve a la pestaña "Issues"
-2. Haz click en "New Issue"
-3. Describe el problema o sugerencia
-4. Añade capturas de pantalla si es necesario
+El juego utiliza una API REST para gestionar las fusiones:
 
-## 🤝 Contribuir
+### Proceso de Fusión
+1. Selecciona dos elementos para combinar
+2. La API procesa la combinación
+3. Recibe el resultado de la fusión
+4. Visualiza el nuevo elemento o mensaje de error
 
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/NuevaCaracteristica`)
-3. Commit tus cambios (`git commit -m 'Add: Nueva característica'`)
-4. Push a la rama (`git push origin feature/NuevaCaracteristica`)
+### Ejemplo de Interacción
+```http
+POST /api/fusion
+{
+    "elemento1": "🔥",
+    "elemento2": "💧"
+}
+```
+
+## 🤝 Contribuciones
+
+¡Las contribuciones son bienvenidas! Sigue estos pasos:
+
+1. Fork del proyecto
+2. Crea tu rama (`git checkout -b feature/NuevaCaracteristica`)
+3. Commit (`git commit -m 'Añade nueva característica'`)
+4. Push (`git push origin feature/NuevaCaracteristica`)
 5. Abre un Pull Request
 
-## 📄 Licencia
+### Guía de Contribución
+- Mantén el código limpio y comentado
+- Sigue las convenciones de estilo existentes
+- Añade tests para nuevas características
+- Actualiza la documentación según sea necesario
 
-Este proyecto está bajo la Licencia MIT
+## 👥 Equipo
 
-## 👥 Autores
+* **Rediaj04** - *Desarrollador Principal* - [Rediaj04](https://github.com/Rediaj04)
+* **Law44** - *Creador de la API* - [Law44](https://github.com/Law44)
+* **cerkine** - *Creador de la API* - [cerkine](https://github.com/cerkine)
 
-- **Jaider** - *Desarrollo inicial* - [Rediaj04](https://github.com/Rediaj04)
-
-## 🙏 Agradecimientos
-
-- Inspirado en juegos como Triple Town y 2048
-- Iconos y emojis de [Unicode Emoji](https://unicode.org/emoji/charts/full-emoji-list.html)
-- React DnD por la funcionalidad de drag and drop
-- Comunidad de React por sus recursos y documentación
+---
+<div align="center">
+  <a href="https://github.com/Rediaj04">
+    <img src="https://github.com/Rediaj04.png" width="100" height="100" style="border-radius: 50%;">
+    <br>
+    <sub>@Rediaj04</sub>
+  </a>
+  <br>
+  Desarrollado con ❤️
+</div>

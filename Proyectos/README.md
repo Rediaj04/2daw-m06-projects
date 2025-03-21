@@ -36,6 +36,10 @@ En esta sección del repositorio, encontrarás una serie de proyectos desarrolla
    - Una aplicación web con funcionalidades diversas.  
    - [Ver proyecto](https://github.com/Rediaj04/2daw-m06-projects/tree/main/Proyectos/Aplicacion_Web)
 
+9. **FusionAPI** 💻  
+   - Una aplicación web que permite la fusión de bloques/objetos mediante una API.
+   - [Ver proyecto](https://github.com/Rediaj04/2daw-m06-projects/tree/main/Proyectos/FusionAPI)
+
 ---
 
 🔜 A medida que avance en mis desarrollos, se irán añadiendo más proyectos a esta sección del repositorio.
