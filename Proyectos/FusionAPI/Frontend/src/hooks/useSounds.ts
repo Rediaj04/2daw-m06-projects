@@ -20,6 +20,7 @@ import fusionSound from '../assets/sounds/fusion.mp3';
 import maxLevelSound from '../assets/sounds/maxLevel.mp3';
 import resetSound from '../assets/sounds/reset.mp3';
 import fusionTotalSound from '../assets/sounds/fusionTotal.mp3';
+import errorSound from '../assets/sounds/error.mp3';
 
 export const useSounds = () => {
     const playSound = useCallback((soundName: keyof typeof sounds) => {
@@ -30,6 +31,7 @@ export const useSounds = () => {
             maxLevel: new Audio(maxLevelSound),
             reset: new Audio(resetSound),
             fusionTotal: new Audio(fusionTotalSound),
+            error: new Audio(errorSound),
         };
         
         const sound = sounds[soundName];

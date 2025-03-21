@@ -17,7 +17,6 @@ import React, { useState } from 'react';
 import Celda from './Celda';
 import { TipoElemento, Elemento, Celda as CeldaTipo } from '../types/tipos';
 import { useSounds } from '../hooks/useSounds';
-import FusionEffect from './FusionEfecto'; 
 
 const Tablero: React.FC = () => {
     const [gameId, setGameId] = useState(0);
@@ -55,59 +54,39 @@ const Tablero: React.FC = () => {
     // Añadimos una referencia para controlar si el tablero está en estado inicial
     const [isNewGame, setIsNewGame] = useState(true);
 
-    // Estado para el efecto de fusión
-    const [fusionEffect, setFusionEffect] = useState<{x: number; y: number; nivel: TipoElemento} | null>(null);
-
     const encontrarCeldaVaciaAleatoria = (): { fila: number; columna: number } | null => {
-        // Crear un array de todas las celdas vacías disponibles
-        const celdasVacias: { fila: number; columna: number }[] = [];
-
-        for (let fila = 0; fila < tablero.length; fila++) {
-            for (let columna = 0; columna < tablero[fila].length; columna++) {
-                // Excluir las celdas de los generadores (0,0) y (0,6)
-                if (!tablero[fila][columna].elemento && 
-                    !((fila === 0 && columna === 0) || (fila === 0 && columna === 6))) {
-                    celdasVacias.push({ fila, columna });
+        const celdasVacias = [];
+        
+        // Encuentra todas las celdas que no sean generadores y estén vacías
+        for (let i = 0; i < tablero.length; i++) {
+            for (let j = 0; j < tablero[i].length; j++) {
+                // Solo excluimos las celdas que son generadores
+                if (!tablero[i][j].esGenerador && !tablero[i][j].elemento) {
+                    celdasVacias.push({ fila: i, columna: j });
                 }
             }
         }
+        
+        // Si hay celdas disponibles, retorna una aleatoria
+        if (celdasVacias.length > 0) {
+            const indiceAleatorio = Math.floor(Math.random() * celdasVacias.length);
+            return celdasVacias[indiceAleatorio];
+        }
 
-        if (celdasVacias.length === 0) {
+        // Si no hay celdas disponibles, retorna null
         return null;
-        }
-
-        // Seleccionar una celda vacía aleatoria
-        const indiceAleatorio = Math.floor(Math.random() * celdasVacias.length);
-        return celdasVacias[indiceAleatorio];
-    };
-
-    const obtenerSiguienteElemento = async (emoji: string): Promise<string | null> => {
-        try {
-            const response = await fetch(`http://localhost:8080/api/v1/emojis?emoji=${encodeURIComponent(emoji)}`);
-            if (!response.ok) {
-                throw new Error('Error en la petición');
-            }
-            const nuevoEmoji = await response.text();
-            return nuevoEmoji;
-        } catch (error) {
-            console.error('Error al obtener el siguiente elemento:', error);
-            return null;
-        }
     };
 
     const manejarFusion = async (filaDestino: number, columnaDestino: number, elemento: Elemento, filaOrigen: number, columnaOrigen: number) => {
-        // Si es la primera acción después de un reinicio, asegurarse de que estamos trabajando con el tablero limpio
         if (isNewGame) {
             setIsNewGame(false);
         }
 
-        // Verificar si está intentando soltar en la misma posición
         if (filaOrigen === filaDestino && columnaOrigen === columnaDestino) {
             setError('No puedes soltar un bloque en su misma posición');
             return;
         }
 
-        // Verificar si la celda destino es un generador
         if (tablero[filaDestino][columnaDestino].esGenerador) {
             setError('No puedes mover bloques a las celdas generadoras');
             return;
@@ -118,40 +97,39 @@ const Tablero: React.FC = () => {
         const elementoReal = elementoOrigen || elemento;
 
         if (celdaDestino.elemento) {
-            // Verificar si los emojis son iguales
-            console.log('Comparando:', {
-                destino: celdaDestino.elemento.tipo,
-                origen: elementoReal.tipo
-            });
-            
             if (celdaDestino.elemento.tipo === elementoReal.tipo) {
-                console.log('Emojis iguales, pidiendo siguiente a la API');
-                // Usar el emoji actual para pedir el siguiente
-                const siguienteEmoji = await obtenerSiguienteElemento(elementoReal.tipo);
-                
-                console.log('API devolvió:', siguienteEmoji);
-                
-                if (siguienteEmoji) {
-                    const nuevoElemento: Elemento = {
-                        tipo: siguienteEmoji,
-                        nivel: 1
-                    };
-
-                    const nuevoTablero = [...tablero];
-                    nuevoTablero[filaDestino][columnaDestino].elemento = nuevoElemento;
-                    nuevoTablero[filaOrigen][columnaOrigen].elemento = null;
-                    setTablero(nuevoTablero);
-
-                    playSound('fusion');
-                    setFusionEffect({
-                        x: columnaDestino * 30 + 15,
-                        y: filaDestino * 30 + 15,
-                        nivel: siguienteEmoji as TipoElemento
-                    });
+                try {
+                    const response = await fetch(
+                        `http://localhost:8080/api/v1/emojis?emoji=${encodeURIComponent(elementoReal.tipo)}`
+                    );
+                    
+                    if (!response.ok) {
+                        throw new Error('Error en la petición a la API');
+                    }
+                    
+                    const siguienteEmoji = await response.text();
+                    
+                    if (siguienteEmoji) {
+                        const nuevoTablero = [...tablero];
+                        nuevoTablero[filaDestino][columnaDestino].elemento = {
+                            tipo: siguienteEmoji,
+                            nivel: 1
+                        };
+                        nuevoTablero[filaOrigen][columnaOrigen].elemento = null;
+                        setTablero(nuevoTablero);
+                        playSound('fusion');
+                    } else {
+                        setError('No hay más evoluciones disponibles');
+                        playSound('error');
+                    }
+                } catch (error) {
+                    console.error('Error al obtener el siguiente elemento:', error);
+                    setError('Error al realizar la fusión');
+                    playSound('error');
                 }
             } else {
-                console.log('Los emojis no son iguales, no se puede fusionar');
                 setError('No se pueden fusionar elementos diferentes');
+                playSound('error');
             }
         } else {
             const nuevoTablero = [...tablero];
@@ -165,22 +143,28 @@ const Tablero: React.FC = () => {
     };
 
     const manejarGeneracion = (tipoGenerador: TipoElemento) => {
-        const nuevoElemento: Elemento = {
-            tipo: tipoGenerador === 'a' ? '🔥' : '💧',
-            nivel: 1
-        };
-        
         const celdaVacia = encontrarCeldaVaciaAleatoria();
-        if (!celdaVacia) {
-            setError('¡Tablero lleno! Fusiona algunos bloques para liberar espacio');
-            return;
+        
+        if (celdaVacia) {
+            // Determinar el emoji inicial según el generador
+            const emojiInicial = tipoGenerador === 'a' ? '🔥' : '💧';
+            
+            const nuevoTablero = [...tablero];
+            nuevoTablero[celdaVacia.fila][celdaVacia.columna] = {
+                elemento: {
+                    tipo: emojiInicial, // Usamos el emoji directamente
+                    nivel: 1
+                },
+                esGenerador: false
+            };
+            
+            setTablero(nuevoTablero);
+            playSound('generate');
+        } else {
+            playSound('error');
+            setError('¡No hay espacios disponibles en el tablero!');
+            setTimeout(() => setError(null), 3000);
         }
-
-        const nuevoTablero = [...tablero];
-        nuevoTablero[celdaVacia.fila][celdaVacia.columna].elemento = nuevoElemento;
-        setTablero(nuevoTablero);
-        setError(null);
-        playSound('generate');
     };
 
     const reiniciarTablero = () => {
@@ -304,14 +288,6 @@ const Tablero: React.FC = () => {
                     </div>
                 ))}
             </div>
-            {fusionEffect && (
-                <FusionEffect
-                    x={fusionEffect.x}
-                    y={fusionEffect.y}
-                    nivel={fusionEffect.nivel}
-                    onComplete={() => setFusionEffect(null)}
-                />
-            )}
             <div className="botones-container">
                 <button className="boton-reiniciar-juego" onClick={reiniciarTablero}>
                     Reiniciar Juego

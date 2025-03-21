@@ -14,9 +14,9 @@ interface GeneradorProps {
 }
 
 const Generador: React.FC<GeneradorProps> = ({ tipo, onClick }) => {
-    // Función que devuelve el emoji inicial según el tipo
+    // Simplificamos para solo mostrar los emojis iniciales
     const getEmoji = (tipo: TipoElemento): string => {
-        return tipo === 'a' ? '🔥' : '💧';
+        return tipo === 'a' ? '🔥' : '💧'; // Solo fuego y agua como elementos base
     };
 
     return (
