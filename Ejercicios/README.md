@@ -36,6 +36,10 @@ En esta sección del repositorio, encontrarás una serie de ejercicios práctico
     - Este ejercicio muestra cómo manipular el DOM utilizando JavaScript y React, creando componentes interactivos y dinámicos.
     - [Ver ejercicio](https://github.com/Rediaj04/2daw-m06-projects/tree/main/Ejercicios/Manipulacion_del_DOM_y_React)
 
+8. **xxx** (EMOJI) 
+    - xxx
+    - [Ver ejercicio](https://github.com/Rediaj04/2daw-m06-projects/tree/main/Ejercicios/PeticionesV2)
+
 ---
 
 🔜 A medida que avance en mis prácticas, se irán añadiendo más ejercicios a esta sección del repositorio.
