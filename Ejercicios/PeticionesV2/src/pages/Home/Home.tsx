@@ -6,7 +6,7 @@ import { ModelData } from "../../models/ModelData";
 
 import "./Home.css";
 
-const API_URL = "http://192.168.236.234:8080/objects"; //S'ha de canviar localhost per la IP correcte
+const API_URL = "http://192.168.238.42:8080/objects"; //S'ha de canviar localhost per la IP correcte
 
 function Home() {
     const [objects, setObjects] = useState<ModelObject[]>([]); //Lista dels objectes a mostrar
@@ -66,7 +66,18 @@ function Home() {
     
     // Crear un objeto por ID con axios
     const createObject = async () => {
-        const [name, photo, description, price] = newObject.split(",").map((item) => item.trim());
+        // Validación del input
+        const parts = newObject.split(",").map((item) => item.trim());
+        if (parts.length !== 4) {
+            alert("Debes introducir todos los campos: nombre, foto, descripción, precio");
+            return;
+        }
+        if (isNaN(parseFloat(parts[3]))) {
+            alert("El precio debe ser un número válido");
+            return;
+        }
+
+        const [name, photo, description, price] = parts;
     
         try {
             // Enviar la solicitud POST
@@ -91,6 +102,7 @@ function Home() {
             // Actualizar la lista de objetos
             setObjects((prevObjects) => [...prevObjects, newObj]);
             setNewObject(""); // Limpiar el input
+            fetchObjects(); // Recargar los datos
         } catch (error) {
             console.error("Error al crear el objeto:", error);
         }
@@ -98,7 +110,18 @@ function Home() {
     
     // Actualizar un objeto por ID con fetch
     const updateObject = async (id: string) => {
-        const [name, photo, description, price] = newObject.split(",").map((item) => item.trim());
+        // Validación del input
+        const parts = newObject.split(",").map((item) => item.trim());
+        if (parts.length !== 4) {
+            alert("Debes introducir todos los campos: nombre, foto, descripción, precio");
+            return;
+        }
+        if (isNaN(parseFloat(parts[3]))) {
+            alert("El precio debe ser un número válido");
+            return;
+        }
+
+        const [name, photo, description, price] = parts;
 
         try {
             // Enviar la solicitud PUT
@@ -131,7 +154,8 @@ function Home() {
             setObjects((prevObjects) =>
                 prevObjects.map((obj) => (obj.id === id ? updatedObject : obj))
             );
-            // setNewObject(""); // Limpiar el input
+            setNewObject(""); // Limpiar el input
+            fetchObjects(); // Recargar los datos
         } catch (error) {
             console.error("Error al actualizar el objeto:", error);
         }
@@ -140,21 +164,9 @@ function Home() {
     // Eliminar un objeto por ID con axios
     const deleteObject = async (id: string) => {
         try {
-            const response = await axios.delete(API_URL + "/" + id);
-            const obj = response.data;
-
-            // Transformar los datos recibidos en un objeto ModelObject
-            const modelObject = new ModelObject(obj.name, obj.data, obj.id);
-            const deletedObject = {
-                id: modelObject.id,
-                name: modelObject.name,
-                data: new ModelData(modelObject.data.photo, modelObject.data.description, modelObject.data.price),
-            };
-
-            console.log("Objeto eliminado:", deletedObject);
-
-            // Actualizar la lista de objetos
-            setObjects((prevObjects) => prevObjects.filter((obj) => obj.id !== id));
+            await axios.delete(API_URL + "/" + id);
+            // Recargar los datos después de eliminar
+            fetchObjects();
         } catch (error) {
             console.error("Error al eliminar el objeto:", error);
         }
