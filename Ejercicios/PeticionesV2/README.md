@@ -79,4 +79,4 @@ nombre, foto, descripción, precio
 
 ## Variables de Entorno
 La aplicación requiere la siguiente variable de entorno:
-- `VITE_API_URL` - URL de la API (por defecto: http://192.168.238.42:8080/objects)
+- `VITE_API_URL` - URL de la API (por defecto: http://192.168.236.234:8080/objects)

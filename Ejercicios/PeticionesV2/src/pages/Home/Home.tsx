@@ -6,7 +6,7 @@ import { ModelData } from "../../models/ModelData";
 
 import "./Home.css";
 
-const API_URL = "http://192.168.238.42:8080/objects"; //S'ha de canviar localhost per la IP correcte
+const API_URL = "http://192.168.236.234:8080/objects"; //S'ha de canviar localhost per la IP correcte
 
 function Home() {
     const [objects, setObjects] = useState<ModelObject[]>([]); //Lista dels objectes a mostrar

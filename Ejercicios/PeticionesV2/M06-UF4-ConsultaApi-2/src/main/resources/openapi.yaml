@@ -1,0 +1,191 @@
+openapi: 3.0.0
+info:
+  description: API for managing objects with structured data
+  title: Object Management API
+  version: 1.0.0
+servers:
+- url: localhost:8080
+paths:
+  /objects:
+    get:
+      description: Returns a list of all objects
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Object'
+                type: array
+          description: A JSON array of objects
+      summary: List all objects
+      x-accepts:
+      - application/json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObjectRequest'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectResponse'
+          description: Object successfully created
+      summary: Add a new object
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /objects/{id}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_objects__id__delete_200_response'
+          description: Deletion confirmation
+      summary: Delete an object
+      x-accepts:
+      - application/json
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+          description: The requested object
+      summary: Get a single object
+      x-accepts:
+      - application/json
+    patch:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectResponse'
+          description: Partially updated object
+      summary: Partially update an object
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObjectRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectResponse'
+          description: Updated object
+      summary: Update an object
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+components:
+  schemas:
+    Object:
+      example:
+        data:
+          key: ""
+        name: name
+        id: id
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        data:
+          additionalProperties: {}
+          type: object
+      type: object
+    ObjectRequest:
+      example:
+        data:
+          key: ""
+        name: name
+      properties:
+        name:
+          type: string
+        data:
+          additionalProperties: {}
+          type: object
+      type: object
+    ObjectResponse:
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        data:
+          key: ""
+        name: name
+        id: id
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        data:
+          additionalProperties: {}
+          type: object
+        createdAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      type: object
+    _objects__id__delete_200_response:
+      example:
+        message: message
+      properties:
+        message:
+          type: string
+      type: object
